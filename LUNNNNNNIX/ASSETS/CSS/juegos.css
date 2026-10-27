@@ -1,0 +1,56 @@
+:root{font-family:Montserrat, sans-serif;color:#f7f7fb;background:#07070d;font-synthesis:none}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 78% 0%,rgba(43,53,255,.15),transparent 35%),#07070d;color:#f7f7fb}.top{height:78px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,76px);border-bottom:1px solid rgba(255,255,255,.08);background:rgba(8,8,15,.85)}.brand{display:flex;gap:12px;align-items:center;color:inherit;text-decoration:none;font-size:16.24px;font-weight:700;letter-spacing:.2px}.brand-mark{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,#2B35FF,#BB3AFF);font-size:13.92px}.brand small{display:block;margin-top:5px;color:#918fa2;font-size:10.44px;letter-spacing:1.6px}.back{color:#c5c4d1;text-decoration:none;font-size:13.92px;border:1px solid #282735;padding:11px 15px;border-radius:12px}.back:hover{border-color:#3786FF;color:#fff}.page{max-width:1240px;margin:auto;padding:clamp(28px,5vw,64px) 24px 28px}.intro{max-width:700px}.eyebrow{color:#3786FF;font-size:11.6px;font-weight:800;letter-spacing:2.3px}.intro h1{font-size:clamp(39.44px,5.8vw,67.28px);letter-spacing:-2px;margin:13px 0}.intro h1 span{color:#BB3AFF}.intro p{color:#a6a4b3;line-height:1.8;font-size:16.24px;max-width:620px}.filters{display:flex;gap:9px;flex-wrap:wrap;margin:30px 0}.filter{border:1px solid #292837;background:#11111b;color:#aaa9ba;border-radius:12px;padding:11px 15px;font:500 13.92px Montserrat;cursor:pointer;transition:.2s}.filter:hover,.filter.active{color:white;border-color:#3786FF;background:rgba(55,134,255,.14)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}.media-card{min-width:0;padding:20px;border:1px solid rgba(255,255,255,.09);border-radius:20px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));transition:transform .22s,border-color .22s}.media-card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent),transparent 45%)}.card-top{display:flex;justify-content:space-between;align-items:center}.tag{font-size:10.44px;letter-spacing:1.4px;color:var(--accent);font-weight:800}.symbol{color:var(--accent);font-size:25.52px}.media-card h2{font-size:22.04px;margin:16px 0 7px}.media-card p{font-size:13.92px;line-height:1.7;color:#a7a5b5;min-height:38px}.media-card video{display:block;width:100%;max-height:230px;aspect-ratio:16/9;background:#030308;border-radius:12px;margin-top:15px;object-fit:contain}.media-card .missing{min-height:0;font-size:11.6px;color:#777587;margin-bottom:0}.missing code{color:#c5c3d4;overflow-wrap:anywhere}footer{text-align:center;color:#5f5d70;font-size:10.44px;letter-spacing:2px;padding:35px 0 5px}@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:580px){.top{height:auto;min-height:72px;padding:14px 16px;gap:12px}.brand{font-size:13.92px}.brand-mark{width:35px;height:35px}.back{font-size:11.6px;padding:10px}.page{padding:30px 15px}.grid{grid-template-columns:1fr}.media-card video{max-height:260px}.filters{gap:7px}.filter{padding:10px 12px}}
+.games-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px;margin-top:30px}.game-card{min-width:0;position:relative;padding:24px;border:1px solid color-mix(in srgb,var(--accent),transparent 72%);border-radius:20px;background:linear-gradient(145deg,color-mix(in srgb,var(--accent),transparent 94%),rgba(255,255,255,.015));transition:transform .22s ease,border-color .22s ease,background .22s ease}.game-card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent),transparent 35%)}.game-icon{display:grid;place-items:center;width:46px;height:46px;margin-bottom:22px;border-radius:14px;color:var(--accent);background:color-mix(in srgb,var(--accent),transparent 88%);border:1px solid color-mix(in srgb,var(--accent),transparent 65%);font-size:26.68px}.game-card .tag{display:block}.game-card h2{font-size:22.04px;margin:12px 0 7px}.game-card p{min-height:42px;font-size:13.92px;line-height:1.7;color:#a7a5b5}.status{display:inline-flex;margin-top:8px;padding:7px 10px;border:1px solid color-mix(in srgb,var(--accent),transparent 65%);border-radius:8px;color:var(--accent);font-size:10.44px;font-weight:800;letter-spacing:1.2px}@media(max-width:900px){.games-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:580px){.games-grid{grid-template-columns:1fr}}
+
+/* Biblioteca externa de videos por mundo */
+.recommendations{margin:34px 0 0;padding:24px;border:1px solid color-mix(in srgb,var(--accent),transparent 72%);border-radius:22px;background:linear-gradient(145deg,color-mix(in srgb,var(--accent),transparent 94%),rgba(255,255,255,.012))}
+.recommendation-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:17px}.recommendation-heading h2{font-size:clamp(19.72px,2.32vw,25.52px);margin:10px 0 5px}.recommendation-heading p{margin:0;min-height:0;color:#a7a5b5;font-size:13.92px}.count{flex:none;border:1px solid color-mix(in srgb,var(--accent),transparent 55%);border-radius:9px;padding:8px 10px;color:var(--accent);font-size:10.44px;font-weight:800;letter-spacing:1px}.video-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.video-link{display:flex;align-items:center;gap:13px;min-width:0;padding:14px;border:1px solid rgba(255,255,255,.075);border-radius:14px;background:rgba(5,5,12,.55);color:#f7f7fb;text-decoration:none;transition:transform .2s,border-color .2s,background .2s}.video-link:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--accent),transparent 35%);background:color-mix(in srgb,var(--accent),transparent 94%)}.video-number{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:10px;background:color-mix(in srgb,var(--accent),transparent 87%);color:var(--accent);font-size:12.76px;font-weight:800}.video-link-copy{display:flex;flex:1;min-width:0;flex-direction:column;gap:5px}.video-link-copy strong{font-size:13.92px;line-height:1.5}.video-link-copy small{font-size:11.6px;color:#9290a3}.play-icon{display:grid;place-items:center;flex:none;width:30px;height:30px;border-radius:50%;border:1px solid color-mix(in srgb,var(--accent),transparent 55%);color:var(--accent);font-size:11.6px;padding-left:2px}.recommendations[hidden]{display:none!important}@media(max-width:580px){.recommendations{padding:16px}.recommendation-heading{align-items:flex-start}.video-links{grid-template-columns:1fr}.video-link{padding:12px}.count{font-size:9.28px}}
+
+/* LUNIX · microinteracciones compartidas por Videos y Juegos */
+:root { --lu-violeta:#4B4799; --lu-lila:#BB3AFF; --lu-rosa:#FF3DEE; --lu-magenta:#FF0EB6; --lu-rojo:#FF0B16; --lu-naranja:#FF6A13; --lu-verde:#19A173; --lu-lima:#B9F609; --lu-azul:#3786FF; --lu-azul-profundo:#2B35FF; }
+.top { backdrop-filter: blur(14px); }
+.brand-mark { background:linear-gradient(135deg,#4B4799 0%,#2B35FF 45%,#FF3DEE 100%); box-shadow:0 5px 20px rgba(43,53,255,.18); }
+.back { transition:color .24s ease,border-color .24s ease,background .24s ease,transform .24s ease; }
+.back:hover { background:rgba(55,134,255,.08); transform:translateY(-1px); }
+.intro h1 span { background:linear-gradient(100deg,#3786FF,#FF3DEE 58%,#FF6A13); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.filter { transition:color .24s ease,border-color .24s ease,background .24s ease,transform .24s ease,box-shadow .24s ease; }
+.filter:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(43,53,255,.13); }
+.filter.active { border-color:#FF3DEE; background:linear-gradient(110deg,rgba(43,53,255,.2),rgba(255,61,238,.10)); box-shadow:0 5px 18px rgba(43,53,255,.12); }
+.media-card,.game-card,.recommendations { position:relative; overflow:hidden; }
+.media-card::before,.game-card::before { content:""; position:absolute; inset:0 auto auto 0; width:100%; height:2px; background:linear-gradient(90deg,transparent,var(--accent),transparent); opacity:.62; transform:scaleX(.25); transform-origin:center; transition:transform .32s ease,opacity .32s ease; }
+.media-card:hover::before,.game-card:hover::before { transform:scaleX(1); opacity:1; }
+.media-card:hover,.game-card:hover { box-shadow:0 14px 35px color-mix(in srgb,var(--accent),transparent 91%); }
+.game-icon { transition:transform .28s cubic-bezier(.2,.75,.25,1),background .28s ease,box-shadow .28s ease; }
+.game-card:hover .game-icon { transform:translateY(-2px) rotate(-4deg) scale(1.06); box-shadow:0 7px 22px color-mix(in srgb,var(--accent),transparent 82%); }
+.video-link:hover .play-icon { transform:scale(1.08); background:color-mix(in srgb,var(--accent),transparent 88%); }
+.play-icon { transition:transform .22s ease,background .22s ease; }
+.lu-reveal { opacity:0; transform:translateY(14px); transition:opacity .48s ease var(--lu-delay,0ms),transform .48s cubic-bezier(.2,.75,.25,1) var(--lu-delay,0ms); }
+.lu-reveal.lu-visible { opacity:1; transform:translateY(0); }
+[hidden] { display:none !important; }
+@media(prefers-reduced-motion:reduce) { .lu-reveal { opacity:1; transform:none; transition:none; } }
+
+
+/* Tarjeta de acceso directo a LUNIX VR dentro de Juegos */
+.game-card-vr{display:block;color:inherit;text-decoration:none;cursor:pointer;background:linear-gradient(145deg,rgba(55,134,255,.16),rgba(187,58,255,.06));border-color:rgba(55,134,255,.42)}
+.game-card-vr h2 span{color:#3786FF}
+.game-card-vr .status{transition:background .22s ease,transform .22s ease}
+.game-card-vr:hover .status{background:rgba(55,134,255,.14);transform:translateX(3px)}
+.game-card-vr:focus-visible{outline:2px solid #3786FF;outline-offset:4px}
+
+/* MODO PROYECCIÓN: textos visibles desde el fondo del salón */
+@media (min-width: 1500px) {
+  .brand { font-size: 25px; }
+  .brand small { font-size: 17px; }
+  .back { font-size: 22px; padding: 15px 20px; }
+  .eyebrow, .tag { font-size: 18px; letter-spacing: 2px; }
+  .intro h1 { font-size: clamp(72px, 5vw, 100px); line-height: 1.08; }
+  .intro p { font-size: clamp(25px, 1.55vw, 34px); line-height: 1.55; max-width: 1050px; }
+  .filter { font-size: 22px; padding: 16px 22px; }
+  .media-card, .game-card { padding: 30px; }
+  .media-card h2, .game-card h2 { font-size: clamp(32px, 2vw, 42px); line-height: 1.2; }
+  .media-card p, .game-card p { font-size: clamp(22px, 1.35vw, 29px); line-height: 1.5; }
+  .media-card .missing { font-size: 19px; }
+  .status, footer, .count { font-size: 17px; }
+  .recommendation-heading h2 { font-size: clamp(30px, 1.8vw, 38px); }
+  .recommendation-heading p, .video-link-copy strong { font-size: clamp(21px, 1.3vw, 28px); }
+  .video-link-copy small { font-size: 19px; }
+}

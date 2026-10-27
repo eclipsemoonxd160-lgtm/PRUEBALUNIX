@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LUNIX · Realidad Virtual</title>
+  <link rel="stylesheet" href="fuente.css">
+<link rel="stylesheet" href="style.css">
+  <!-- A-Frame (motor de realidad virtual). Está incluido en la carpeta libs -->
+  <script src="libs/aframe.min.js"></script>
+    <link rel="icon" type="image/png" href="../ASSETS/Imagenes/xandro.png">
+</head>
+<body>
+
+  <!-- ===== PANTALLA DE INICIO ===== -->
+  <div id="inicio">
+    <img class="retrato" data-xandro alt="Xandro">
+    <h1>LUN<span>I</span>X</h1>
+    <p>Un universo de conocimiento en realidad virtual. Xandro será tu guía.</p>
+    <div class="opciones-entrada">
+      <button type="button" id="btnEntrar360" class="btn-entrada btn-360">
+        <span class="btn-ico">🌐</span>
+        <span class="btn-tit">360° normal</span>
+        <span class="btn-desc">Una sola pantalla · arrastra con el dedo o el mouse</span>
+      </button>
+      <button type="button" id="btnEntrarVR" class="btn-entrada btn-vr">
+        <span class="btn-ico">🥽</span>
+        <span class="btn-tit">Modo VR BOX</span>
+        <span class="btn-desc">Pantalla dividida en 2 para gafas VR BOX</span>
+      </button>
+    </div>
+    <small>
+      <strong>360° normal:</strong> arrastra con el dedo/mouse para mirar, toca los planetas. En PC: WASD.<br>
+      <strong>VR BOX:</strong> se duplica la vista (izquierda/derecha). Pon el móvil en horizontal dentro de las gafas. Gira la cabeza para mirar.<br>
+      <strong>Voz manos libres:</strong> en VR BOX el micrófono queda encendido. Di «llévame a Arte», «siguiente planeta», «ir a la estrella», «volver al inicio», «recorrido», «detente», o hazle cualquier pregunta a Xandro.
+    </small>
+  </div>
+
+  <!-- ===== BARRA SUPERIOR (solo en pantalla normal) ===== -->
+  <div id="hud">
+    <div class="marca">LUNIX <span>VR</span></div>
+    <button id="btnStereo" type="button" aria-pressed="false">🥽 Modo VR BOX</button>
+    <button id="btnManosLibres" type="button" aria-pressed="false" title="Háblale a Xandro sin tocar la pantalla">🎙 Manos libres</button>
+    <button id="btnRecorrido">▶ Recorrido</button>
+    <button id="btnInicio">⟲ Inicio</button>
+    <button id="btnVoz" title="Activar o silenciar la voz de Xandro">🔊</button>
+  </div>
+
+  <!-- ===== CHAT 2D CON XANDRO ===== -->
+  <button id="btnChat">💬 Hablar con Xandro</button>
+  <div id="chat" class="oculto">
+    <div class="chat-cab">
+      <b class="nombre"><img class="mini" data-xandro alt="">Xandro · LUNIX</b>
+      <button id="cerrarChat" title="Cerrar">✕</button>
+    </div>
+    <div id="mensajes"></div>
+    <form id="formChat">
+      <input type="text" id="entradaChat" placeholder="Escribe tu pregunta..." autocomplete="off" required>
+      <button type="button" id="btnMic" title="Hablarle a Xandro">🎤</button>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <!-- ===== ESCENA DE REALIDAD VIRTUAL ===== -->
+  <a-scene id="escena"
+           renderer="antialias: true"
+           vr-mode-ui="enabled: true"
+           loading-screen="enabled: false"
+           background="color: #000004">
+
+    <!-- Estrellas del fondo -->
+    <a-entity campo-estelar></a-entity>
+
+    <!-- Luz ambiental suave -->
+    <a-entity light="type: ambient; color: #8e96c8; intensity: 0.7"></a-entity>
+
+    <!-- Estrella central de LUNIX: la estrella de Xandro (y la luz del sistema).
+         Su aspecto y sus animaciones las crea estrella.js -->
+    <a-entity id="sol" position="0 2.5 0" estrella-viva="radio: 1.9">
+      <a-entity light="type: point; color: #ffe2a8; intensity: 2.2; distance: 0; decay: 0"></a-entity>
+    </a-entity>
+
+    <!-- Aquí el script crea los planetas -->
+    <a-entity id="sistema" position="0 2.5 0"></a-entity>
+
+    <!-- Panel de información de un planeta (lo maneja el script) -->
+    <a-entity id="panelInfo" mirar-camara visible="false"></a-entity>
+
+    <!-- ===== XANDRO: el asistente que te acompaña ===== -->
+    <a-entity id="xandro" companero mirar-camara scale="0.7 0.7 0.7" position="0.7 1.5 12">
+      <!-- Xandro 3D: lo construye y anima xandro3d.js -->
+      <a-entity avatar-xandro></a-entity>
+      <!-- la burbuja de texto y los botones se crean desde script.js -->
+    </a-entity>
+
+    <!-- ===== EL VISITANTE: cámara + manos ===== -->
+    <a-entity id="rig" navegante vr-locomocion position="0 0 14">
+      <a-entity id="camara" camera="fov: 80; near: 0.1; far: 10000"
+                look-controls="touchEnabled: true; magicWindowTracking: false; pointerLockEnabled: false"
+                wasd-controls="fly: true; acceleration: 30"
+                position="0 1.6 0"></a-entity>
+      <a-entity id="manoIzq" laser-controls="hand: left"
+                raycaster="objects: .clickable; far: 80"></a-entity>
+      <a-entity id="manoDer" laser-controls="hand: right"
+                raycaster="objects: .clickable; far: 80"></a-entity>
+    </a-entity>
+
+    <!-- Puntero del mouse / dedo -->
+    <a-entity cursor="rayOrigin: mouse" raycaster="objects: .clickable; far: 80"></a-entity>
+  </a-scene>
+
+  <script src="xandro-img.js"></script>
+  <script src="dibujos.js"></script>
+  <script src="estrella.js"></script>
+  <script src="script.js"></script>
+  <script src="xandro3d.js"></script>
+  <script src="stereo-vrbox.js"></script>
+  <script src="voz-vrbox.js"></script>
+</body>
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Literary Universe</title>
+    <link rel="stylesheet" href="ASSETS/CSS/index.css">
+</head>
+
+<body>
+
+    <!-- FONDOS -->
+    <div class="fondos">
+
+        <section class="bg-image">
+            <img src="ASSETS/Imagenes/look-studio-HtXyytr9304-unsplash.jpg" alt="Cosmetología">
+        </section>
+
+        <section class="bg-image">
+            <img src="ASSETS/Imagenes/dan-farrell-fT49QnFucQ8-unsplash.jpg" alt="Arte">
+        </section>
+
+        <section class="bg-image">
+            <img src="ASSETS/Imagenes/jessica-kantak-bailey-WMCvwBTWSi0-unsplash.jpg" alt="Realeza">
+        </section>
+
+        <section class="bg-image">
+            <img src="ASSETS/Imagenes/lenny-kuhne-jHZ70nRk7Ns-unsplash.jpg" alt="Mecánica">
+        </section>
+
+        <section class="bg-image">
+            <img src="ASSETS/Imagenes/kris-mikael-krister-aGihPIbrtVE-unsplash.jpg" alt="Biología marina">
+        </section>
+
+    </div>
+
+
+    <!-- MENÚ LATERAL -->
+    <aside class="menu-lateral">
+
+       
+
+       
+
+        <button aria-label="Manual corporativo" id="btnBiblioteca">▣</button>
+
+        <button aria-label="Diapositiva" id="btnFavoritos">★</button>
+
+       
+
+    </aside>
+
+
+    <!-- BUSCADOR -->
+    <header class="barra-superior">
+
+        <input
+            type="search"
+            id="buscadorLU"
+            placeholder="Buscar en Literary Universe..."
+        >
+
+    </header>
+
+    <div id="resultadosIA" class="resultados-ia oculto"></div>
+
+
+    <!-- INICIO -->
+    <main class="inicio">
+
+        <div class="contenido">
+
+            <h1>Literary Universe</h1>
+
+            <p>
+                Explora nuestro universo del conocimiento.
+            </p>
+
+        </div>
+
+
+        <div class="inicio-sistema">
+
+            <div class="sistema" id="sistema">
+
+                <!-- XANDRO -->
+                <button
+                    class="sol"
+                    id="sol"
+                    aria-label="Hablar con XANDRO"
+                >
+
+                    <img
+                        src="ASSETS/Imagenes/xandro.png"
+                        alt="XANDRO"
+                    >
+
+                    <span class="planeta-nombre">
+                        XANDRO
+                    </span>
+
+                </button>
+
+
+                <!-- MECÁNICA -->
+                <button
+                    class="planeta"
+                    data-section="mecanica"
+                    data-radio="14"
+                    data-velocidad="13"
+                    data-inicio="30"
+                    style="--tam:26px; --tema:#FF3222;"
+                    aria-label="Ir a Mecánica"
+                >
+
+                    <span class="planeta-nombre">
+                        Mecánica
+                    </span>
+
+                    <span class="cuerpo cuerpo--mecanica"></span>
+
+                </button>
+
+
+                <!-- ARTE -->
+                <button
+                    class="planeta"
+                    data-section="arte"
+                    data-radio="23"
+                    data-velocidad="9.5"
+                    data-inicio="160"
+                    style="--tam:34px; --tema:#F238FF;"
+                    aria-label="Ir a Arte"
+                >
+
+                    <span class="planeta-nombre">
+                        Arte
+                    </span>
+
+                    <span class="cuerpo cuerpo--arte"></span>
+
+                </button>
+
+
+                <!-- REALEZA -->
+                <button
+                    class="planeta"
+                    data-section="realeza"
+                    data-radio="32"
+                    data-velocidad="7"
+                    data-inicio="250"
+                    style="--tam:38px; --tema:#8450FF;"
+                    aria-label="Ir a Realeza"
+                >
+
+                    <span class="planeta-nombre">
+                        Realeza
+                    </span>
+
+                    <span class="cuerpo cuerpo--realeza"></span>
+
+                </button>
+
+
+                <!-- BIOLOGÍA MARINA -->
+                <button
+                    class="planeta"
+                    data-section="biologia-marina"
+                    data-radio="41"
+                    data-velocidad="5.2"
+                    data-inicio="95"
+                    style="--tam:32px; --tema:#3396FF;"
+                    aria-label="Abrir Biología marina"
+                >
+
+                    <span class="planeta-nombre">
+                        Biología marina
+                    </span>
+
+                    <span class="cuerpo cuerpo--marina"></span>
+
+                </button>
+
+
+                <!-- COSMETOLOGÍA -->
+                <button
+                    class="planeta"
+                    data-section="cosmetologia"
+                    data-radio="50"
+                    data-velocidad="3.8"
+                    data-inicio="320"
+                    style="--tam:28px; --tema:#F40898;"
+                    aria-label="Ir a Cosmetología"
+                >
+
+                    <span class="planeta-nombre">
+                        Cosmetología
+                    </span>
+
+                    <span class="cuerpo cuerpo--cosmetologia"></span>
+
+                </button>
+
+            </div>
+
+
+            <p class="sistema-ayuda">
+                Pasa el cursor sobre un planeta para descubrir su nombre.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- PANEL DEL MENÚ LATERAL -->
+    <section id="panelLateral" class="panel-lateral" aria-hidden="true">
+        <div class="panel-lateral-contenido">
+            <button id="cerrarPanelLateral" class="panel-lateral-cerrar" aria-label="Cerrar">×</button>
+            <span id="panelLateralEtiqueta" class="panel-lateral-etiqueta">LITERARY UNIVERSE</span>
+            <h2 id="panelLateralTitulo">Biblioteca</h2>
+            <p id="panelLateralDescripcion">Explora tus recursos y contenidos.</p>
+            <div id="panelLateralCuerpo" class="panel-lateral-cuerpo"></div>
+        </div>
+    </section>
+
+    <!-- PANEL DE LOS MUNDOS -->
+    <section
+        id="mundoPanel"
+        class="mundo-panel"
+        aria-hidden="true"
+    >
+
+        <div class="mundo-cola"></div>
+
+        <div class="mundo-contenido">
+
+            <!-- CERRAR -->
+            <button
+                id="cerrarMundo"
+                class="mundo-cerrar"
+                aria-label="Cerrar mundo"
+            >
+                ×
+            </button>
+
+
+            <div class="mundo-layout">
+
+
+                <!-- TIP IZQUIERDO -->
+                <aside class="mundo-tip mundo-tip-izquierdo">
+
+                    <span
+                        class="tip-icon"
+                        id="tipIconoIzq"
+                    >
+                        🌊
+                    </span>
+
+                    <strong id="tipTituloIzq">
+                        CONSEJO
+                    </strong>
+
+                    <p id="tipTextoIzq">
+                        Cuidar los ecosistemas también significa cuidar nuestro futuro.
+                    </p>
+
+                </aside>
+
+
+                <!-- CONTENIDO PRINCIPAL -->
+                <div class="mundo-principal">
+
+                    <div class="mundo-encabezado">
+
+                        <span
+                            class="mundo-etiqueta"
+                            id="mundoEtiqueta"
+                        >
+                            MUNDO 04 · DATOS Y EDUCACIÓN
+                        </span>
+
+                        <h2 id="mundoTitulo">
+                            Biología Marina
+                        </h2>
+
+                        <p id="mundoDescripcion">
+                            Explora los organismos, ecosistemas y fenómenos
+                            que hacen posible la vida en los océanos.
+                        </p>
+
+                    </div>
+
+
+                    <!-- CARRUSEL -->
+                    <div
+                        class="mundo-carrusel"
+                        id="mundoCarrusel"
+                    ></div>
+
+
+                    <!-- BOTONES ABAJO -->
+                    <div class="mundo-controles">
+
+                        <button
+                            id="btnAnterior"
+                            class="slider-btn"
+                            aria-label="Tarjeta anterior"
+                        >
+                            ‹
+                        </button>
+
+                        <div
+                            class="mundo-contador"
+                            id="mundoContador"
+                        >
+                            01 / 09
+                        </div>
+
+                        <button
+                            id="btnSiguiente"
+                            class="slider-btn"
+                            aria-label="Tarjeta siguiente"
+                        >
+                            ›
+                        </button>
+
+                    </div>
+
+
+                    <div class="mundo-ayuda">
+
+                        
+
+                    </div>
+
+                </div>
+
+
+                <!-- TIP DERECHO -->
+                <aside class="mundo-tip mundo-tip-derecho">
+
+                    <span
+                        class="tip-icon"
+                        id="tipIconoDer"
+                    >
+                        🐢
+                    </span>
+
+                    <strong id="tipTituloDer">
+                        DATO CURIOSO
+                    </strong>
+
+                    <p id="tipTextoDer">
+                        Cada ecosistema cumple una función importante dentro del planeta.
+                    </p>
+
+                </aside>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PANEL DE ENLACES RELACIONADOS
+    ====================================================== -->
+    <section id="panelEnlacesRelacionados" class="related-links-panel" aria-hidden="true">
+        <div class="related-links-box">
+            <button id="cerrarEnlacesRelacionados" class="related-links-close" type="button" aria-label="Cerrar">×</button>
+            <span class="related-links-label">LITERARY UNIVERSE · EXPLORAR</span>
+            <h2 id="relatedLinksTitle">Enlaces relacionados</h2>
+            <p id="relatedLinksDescription">Encuentra más información sobre este tema.</p>
+            <div id="relatedLinksList" class="related-links-list"></div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         MANUAL CORPORATIVO Y DIAPOSITIVA
+         Los PDFs pueden colocarse en:
+         ASSETS/Manual/manual-corporativo.pdf
+         ASSETS/Diapositiva/diapositiva.pdf
+    ====================================================== -->
+
+    <section id="panelManual" class="document-panel manual-document-panel" aria-hidden="true">
+        <div class="document-panel-bar">
+            <div>MANUAL CORPORATIVO</div>
+            <button class="document-panel-close" data-close-document="panelManual" aria-label="Cerrar">×</button>
+        </div>
+        <div class="document-panel-body">
+            <iframe
+                src="https://drive.google.com/file/d/1l1wDye-IQZWeCrGqTdKYeO9Db_Ph0aa8/preview"
+                title="Manual corporativo"
+                class="document-frame"
+                loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <section id="panelDiapositiva" class="document-panel slide-document-panel" aria-hidden="true">
+        <div class="document-panel-bar">
+            <div>DIAPOSITIVA</div>
+            <button class="document-panel-close" data-close-document="panelDiapositiva" aria-label="Cerrar">×</button>
+        </div>
+        <div class="document-panel-body">
+            <iframe
+                src="ASSETS/Diapositiva/THE UNIVERSE.pdf (1).pdf.pdf"
+                title="Diapositiva"
+                class="document-frame"
+                loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- El manual se carga desde Google Drive para no incluir el PDF dentro del proyecto. -->
+
+    <!-- =====================================================
+         PLANTILLAS DE VIDEOS DE LOS MUNDOS
+         La tarjeta 09 de cada mundo contiene el video de ese mundo.
+         Los videos se pueden cambiar sin tocar el resto de las 8 tarjetas.
+    ====================================================== -->
+
+    <template id="video-template-biologia-marina">
+        <div class="video-card-scroll">
+            <h3>Videos</h3>
+            <p>El océano, sus ecosistemas y la vida marina explicados mediante contenido audiovisual.</p>
+            <video class="video-frame" controls preload="metadata" playsinline>
+                <source src="ASSETS/Videos/marino.mp4" type="video/mp4">
+                Tu navegador no puede reproducir este video.
+            </video>
+        </div>
+    </template>
+
+    <template id="video-template-mecanica">
+        <div class="video-card-scroll">
+            <h3>Videos</h3>
+            <p>Observa conceptos de movimiento, motores y sistemas mecánicos mediante contenido audiovisual.</p>
+            <video class="video-frame" controls preload="metadata" playsinline>
+                <source src="ASSETS/Videos/mecanica.mp4" type="video/mp4">
+                Tu navegador no puede reproducir este video.
+            </video>
+        </div>
+    </template>
+
+    <template id="video-template-arte">
+        <div class="video-card-scroll">
+            <h3>Videos</h3>
+            <p>Explora técnicas, obras y formas de expresión artística mediante contenido audiovisual.</p>
+            <video class="video-frame" controls preload="metadata" playsinline>
+                <source src="ASSETS/Videos/arte.mp4" type="video/mp4">
+                Tu navegador no puede reproducir este video.
+            </video>
+        </div>
+    </template>
+
+    <template id="video-template-realeza">
+        <div class="video-card-scroll">
+            <h3>Videos</h3>
+            <p>Conoce la historia, los símbolos y el patrimonio de la realeza mediante contenido audiovisual.</p>
+            <video class="video-frame" controls preload="metadata" playsinline>
+                <source src="ASSETS/Videos/realeza.mp4" type="video/mp4">
+                Tu navegador no puede reproducir este video.
+            </video>
+        </div>
+    </template>
+
+    <template id="video-template-cosmetologia">
+        <div class="video-card-scroll">
+            <h3>Videos</h3>
+            <p>Contenido audiovisual sobre cuidado estético, piel, cabello y técnicas de cosmetología.</p>
+            <video class="video-frame video-frame-vertical" controls preload="metadata" playsinline>
+                <source src="ASSETS/Videos/cosmetologia.mp4" type="video/mp4">
+                Tu navegador no puede reproducir este video.
+            </video>
+        </div>
+    </template>
+
+    <script src="search-config.js"></script>
+    <script src="ASSETS/JS/index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,337 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+  font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.oculto { display: none !important; }
+
+/* ---------- Pantalla de inicio ---------- */
+#inicio {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 40%, rgba(32, 26, 66, .8), rgba(0, 0, 6, .96));
+}
+.retrato { width: min(190px, 38vw); filter: drop-shadow(0 0 28px rgba(179,136,255,.55)); animation: flota 4s ease-in-out infinite; }
+@keyframes flota { 50% { transform: translateY(-10px) rotate(1.5deg); } }
+#inicio h1 {
+  font-size: clamp(2.8rem, 11vw, 5.6rem);
+  letter-spacing: .18em;
+  font-weight: 800;
+}
+#inicio h1 span { color: #ffd54a; }
+#inicio p { color: #c3c7e0; max-width: 560px; }
+#inicio small { color: #8d92b4; max-width: 600px; line-height: 1.6; }
+
+.opciones-entrada {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 8px;
+  max-width: 560px;
+}
+.btn-entrada {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 18px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 18px;
+  background: rgba(16, 18, 40, .85);
+  color: #fff;
+  cursor: pointer;
+  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+  text-align: center;
+  min-width: 0;
+}
+.btn-entrada:hover, .btn-entrada:focus {
+  transform: scale(1.03);
+  border-color: #ffd54a;
+  box-shadow: 0 0 24px rgba(255, 213, 74, .35);
+  outline: none;
+}
+.btn-entrada .btn-ico { font-size: 1.8rem; line-height: 1; }
+.btn-entrada .btn-tit { font-size: 1.05rem; font-weight: 700; }
+.btn-entrada .btn-desc { font-size: .78rem; color: #a8add0; line-height: 1.35; max-width: 210px; }
+.btn-360 { border-color: rgba(55, 134, 255, .45); }
+.btn-vr {
+  background: linear-gradient(145deg, rgba(255,213,74,.18), rgba(16,18,40,.9));
+  border-color: rgba(255, 213, 74, .55);
+}
+
+/* Micrófono escuchando */
+#btnMic.escuchando {
+  background: #ff3b5c !important;
+  color: #fff !important;
+  animation: pulso-mic 1s ease-in-out infinite;
+}
+@keyframes pulso-mic {
+  50% { box-shadow: 0 0 0 8px rgba(255, 59, 92, .25); }
+}
+
+/* Canvas táctil */
+#escena, #escena canvas { touch-action: none; }
+
+/* ========== VR BOX: dos lentes circulares lado a lado ========== */
+body.modo-vrbox {
+  background: #000 !important;
+}
+body.modo-vrbox #escena,
+body.modo-vrbox .a-canvas,
+body.modo-vrbox canvas.a-canvas {
+  width: 100% !important;
+  height: 100% !important;
+  background: #000 !important;
+}
+
+/* Capa negra con dos huecos circulares (como la imagen de referencia) */
+#vrbox-mask {
+  display: none;
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 15;
+  background:
+    radial-gradient(circle closest-side at 25% 50%, transparent 0, transparent 48%, #000 49.5%),
+    radial-gradient(circle closest-side at 75% 50%, transparent 0, transparent 48%, #000 49.5%),
+    #000;
+  /* Fallback más compatible: dos círculos transparentes */
+  -webkit-mask-image:
+    radial-gradient(circle at 25% 50%, transparent 42vmin, #000 42.5vmin),
+    radial-gradient(circle at 75% 50%, transparent 42vmin, #000 42.5vmin);
+  -webkit-mask-composite: source-in, destination-over;
+  mask-image:
+    radial-gradient(circle at 25% 50%, transparent 42vmin, #000 42.5vmin),
+    radial-gradient(circle at 75% 50%, transparent 42vmin, #000 42.5vmin);
+  mask-composite: intersect, add;
+}
+body.modo-vrbox #vrbox-mask {
+  display: block;
+  /* Enfoque simple y fiable: negro con dos agujeros redondos */
+  background: #000;
+  -webkit-mask-image:
+    radial-gradient(circle at 25% 50%, transparent 0 41.5vmin, #000 42vmin),
+    radial-gradient(circle at 75% 50%, transparent 0 41.5vmin, #000 42vmin);
+  mask-image:
+    radial-gradient(circle at 25% 50%, transparent 0 41.5vmin, #000 42vmin),
+    radial-gradient(circle at 75% 50%, transparent 0 41.5vmin, #000 42vmin);
+  -webkit-mask-composite: source-out, source-over;
+  mask-composite: subtract, add;
+  /* Alternativa sin mask-composite (más compatible): */
+  background:
+    radial-gradient(circle at 25% 50%, transparent 41.5vmin, #000 42vmin),
+    radial-gradient(circle at 75% 50%, transparent 41.5vmin, #000 42vmin);
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+/* Línea central sutil entre los dos ojos */
+body.modo-vrbox #vrbox-mask::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  margin-left: -1px;
+  background: rgba(0,0,0,.85);
+}
+
+body.modo-vrbox #hud {
+  left: 8px;
+  right: 8px;
+  top: 8px;
+  opacity: .35;
+  z-index: 25;
+}
+body.modo-vrbox #hud:hover,
+body.modo-vrbox #hud:focus-within { opacity: 1; }
+body.modo-vrbox #btnChat {
+  left: 10px;
+  bottom: 10px;
+  opacity: .5;
+  z-index: 25;
+}
+body.modo-vrbox #btnChat:hover { opacity: 1; }
+body.modo-vrbox #chat {
+  left: 8px;
+  right: auto;
+  bottom: 8px;
+  width: min(300px, calc(48vw - 16px));
+  max-height: 42vh;
+  z-index: 30;
+}
+
+/* Aviso breve al activar */
+body.modo-vrbox .a-enter-vr-button { display: none !important; }
+
+/* ---------- Barra superior ---------- */
+#hud {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.marca {
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: rgba(10, 12, 28, .75);
+  border: 1px solid #2a2d4a;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+.marca span { color: #ffd54a; }
+
+#hud button, #btnChat, #cerrarChat {
+  border: 1px solid #2a2d4a;
+  border-radius: 10px;
+  background: rgba(10, 12, 28, .75);
+  color: #fff;
+  padding: 8px 14px;
+  font-size: .9rem;
+  cursor: pointer;
+}
+#hud button:hover, #btnChat:hover { border-color: #ffd54a; }
+#btnVoz.off { opacity: .5; }
+
+/* ---------- Chat 2D ---------- */
+#btnChat {
+  position: fixed;
+  left: 12px;
+  bottom: 12px;
+  z-index: 20;
+  background: #ffd54a;
+  color: #000;
+  font-weight: 700;
+  border: none;
+  padding: 12px 18px;
+}
+
+#chat {
+  position: fixed;
+  left: 12px;
+  bottom: 12px;
+  z-index: 30;
+  width: min(380px, calc(100vw - 24px));
+  height: min(460px, 70vh);
+  display: flex;
+  flex-direction: column;
+  background: rgba(10, 12, 28, .94);
+  border: 1px solid #2a2d4a;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.chat-cab {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: #15172e;
+  border-bottom: 1px solid #2a2d4a;
+}
+.chat-cab b { color: #ffd54a; }
+.chat-cab .nombre { display: flex; align-items: center; gap: 8px; }
+.mini { width: 30px; height: 30px; object-fit: contain; }
+#cerrarChat { padding: 4px 10px; }
+
+#mensajes {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.msg {
+  max-width: 86%;
+  padding: 9px 12px;
+  border-radius: 12px;
+  font-size: .92rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.msg.bot   { align-self: flex-start; background: #1f2140; }
+.msg.user  { align-self: flex-end;   background: #2e7d32; }
+.msg.error { align-self: flex-start; background: #5a1d1d; }
+
+#formChat {
+  display: flex;
+  gap: 6px;
+  padding: 10px;
+  border-top: 1px solid #2a2d4a;
+  background: #15172e;
+}
+#formChat input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  border-radius: 9px;
+  border: 1px solid #2a2d4a;
+  background: #0a0c1c;
+  color: #fff;
+  outline: none;
+}
+#formChat input:focus { border-color: #ffd54a; }
+#formChat button {
+  border: none;
+  border-radius: 9px;
+  padding: 0 14px;
+  background: #ffd54a;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+}
+#formChat #btnMic { background: #2a2d4a; color: #fff; }
+#formChat #btnMic.escuchando { background: #c62828; animation: pulso 1s infinite; }
+@keyframes pulso { 50% { opacity: .55; } }
+
+/* ---------- Cuando se está dentro de las gafas VR se oculta la interfaz 2D ---------- */
+body.en-vr #hud,
+body.en-vr #btnChat,
+body.en-vr #chat,
+body.en-vr #inicio { display: none !important; }
+
+/* ---------- Voz manos libres ---------- */
+#btnManosLibres.activo { background: #c62828; border-color: #ff8a80; animation: pulso 1.2s infinite; }
+#vozEstado {
+  display: none;
+  position: fixed;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  max-width: 92vw;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(8, 10, 26, .85);
+  border: 1px solid #4dd0e1;
+  color: #fff;
+  font-size: .9rem;
+  z-index: 24;
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#vozEstado.hablando { border-color: #ffd54a; }
+#vozEstado.error { border-color: #ff5a6e; }

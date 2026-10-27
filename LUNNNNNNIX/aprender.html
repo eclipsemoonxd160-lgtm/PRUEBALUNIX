@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Literary Universe · Aprender</title>
+<link rel="stylesheet" href="ASSETS/CSS/fuente.css">
+<link rel="stylesheet" href="ASSETS/CSS/aprender.css">
+    <link rel="stylesheet" href="ASSETS/CSS/marca.css">
+    <link rel="icon" type="image/png" href="ASSETS/Imagenes/xandro.png">
+    <link rel="stylesheet" href="ASSETS/CSS/mejoras.css">
+</head>
+<body class="pagina-aprender">
+<header class="top"><a href="index.html" class="brand">✦ LITERARY <b>UNIVERSE</b></a><div class="stats"><span>🔥 <b id="racha">0</b></span><span>⚡ <b id="xp">0</b></span><span>❤️ <b id="vidas">5</b></span><button id="perfil">NIVEL <b id="nivel">1</b></button></div></header>
+<main class="layout">
+<aside class="sidebar"><small>RUTA DE APRENDIZAJE</small><h1>Aprender</h1><p>Explora los cinco mundos y avanza lección por lección.</p><div id="mundos"></div><div class="total"><small>PROGRESO TOTAL</small><b id="total">0%</b><i><em id="totalBar"></em></i></div></aside>
+<section class="journey"><header><div><small id="etiqueta">MUNDO</small><h2 id="titulo">Biología Marina</h2><p id="desc"></p></div><strong id="porcentaje">0%</strong></header><div id="ruta" class="ruta"></div></section>
+<aside class="side"><div><small>MISIÓN DEL DÍA</small><h3 id="mision">Completa una lección</h3><p>Gana XP y mantén viva tu racha.</p><i><em id="dailyBar"></em></i></div><div class="logro"><small>PRÓXIMO LOGRO</small><b id="logroIcon">🌱</b><h3 id="logro">Primer viaje</h3><p id="logroText">Completa tu primera lección.</p></div></aside>
+</main>
+<div id="modal" class="modal"><div class="window"><button class="close" id="cerrar">×</button><div class="track"><i id="track"></i></div><span id="paso">1/5</span><div id="contenido"></div></div></div>
+<div id="perfilModal" class="modal"><div class="window profile"><button class="close" id="cerrarPerfil">×</button><small>PERFIL DEL EXPLORADOR</small><h2>Tu progreso</h2><div class="big"><b id="pNivel">1</b><small>NIVEL</small></div><div class="grid"><div><b id="pXP">0</b><small>XP</small></div><div><b id="pRacha">0</b><small>RACHA</small></div><div><b id="pLecciones">0</b><small>LECCIONES</small></div><div><b id="pMundos">0</b><small>MUNDOS</small></div></div></div></div>
+<script src="ASSETS/JS/progreso.js"></script>
+<script src="ASSETS/JS/aprender.js"></script>
+<script src="ASSETS/JS/aprender-anim.js"></script>
+    <a class="volver-inicio" href="index.html">← Volver al inicio</a>
+    <script src="ASSETS/JS/fondo-pagina.js"></script>
+    <script>
+/* Respaldo del progreso: copiar o restaurar el código */
+(function(){
+  var w=document.querySelector('#perfilModal .window'); if(!w) return;
+  var caja=document.createElement('div'); caja.className='respaldo';
+  caja.innerHTML='<p class="resp-info">✅ Tu progreso se guarda solo en este navegador. Para llevarlo a otro dispositivo, copia tu código.</p><div class="resp-botones"><button type="button" id="copiarProgreso">📋 Copiar código</button><button type="button" id="restaurarProgreso">📥 Restaurar código</button></div><p class="resp-msg" id="respMsg"></p>';
+  w.appendChild(caja);
+  var msg=document.getElementById('respMsg');
+  document.getElementById('copiarProgreso').onclick=function(){
+    var c=LUPROGRESO.exportar();
+    (navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(c):Promise.reject()).then(function(){msg.textContent='¡Código copiado! Guárdalo en un lugar seguro.';},function(){prompt('Copia este código:',c);});
+  };
+  document.getElementById('restaurarProgreso').onclick=function(){
+    var c=prompt('Pega aquí tu código de progreso:'); if(!c) return;
+    if(LUPROGRESO.importar(c)){msg.textContent='¡Progreso restaurado! Recargando…';setTimeout(function(){location.reload();},800);} else msg.textContent='Ese código no es válido.';
+  };
+})();
+</script>
+    <script src="ASSETS/JS/aprender-extra.js"></script>
+</body></html>

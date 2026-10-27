@@ -1,0 +1,99 @@
+/* LUNIX · Juegos de los cinco mundos (ventana de juego + estilos) */
+.jugar{margin-top:10px;padding:12px 24px;border:2px solid var(--c,#8450FF);border-radius:999px;background:transparent;color:#fff;font:800 clamp(14px,1.1vw,17px) Montserrat,sans-serif;cursor:pointer;transition:.25s}
+.jugar:hover{background:var(--c,#8450FF);color:#000;transform:scale(1.05)}
+.game-card .mejor{display:block;margin-top:10px;font-size:13px;color:#c5c4d1}
+
+.gm{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;padding:10px}
+.gm[hidden]{display:none}
+.gm-ventana{width:min(900px,100%);max-height:96vh;overflow-y:auto;border:3px solid var(--c);border-radius:22px;background:rgba(10,8,24,.97);box-shadow:0 0 40px color-mix(in srgb,var(--c),transparent 60%);padding:14px 16px;color:#fff;font-family:Montserrat,sans-serif}
+.gm-cabecera{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.gm-cabecera h2{margin:0;flex:1;font-size:clamp(18px,2.2vw,28px);color:var(--c)}
+.gm-hud{display:flex;gap:16px;font-weight:800;font-size:clamp(15px,1.6vw,20px)}
+.gm-cerrar{width:40px;height:40px;border-radius:50%;border:2px solid #FF3222;background:transparent;color:#fff;font-size:22px;cursor:pointer}
+.gm-cerrar:hover{background:#FF3222}
+.gm-ayuda{margin:0 0 10px;font-size:clamp(13px,1.1vw,16px);color:#c5c4d1}
+.gm-escena{position:relative}
+.gm-canvas{display:block;width:min(100%,calc(66vh*1.6));aspect-ratio:8/5;height:auto;margin:auto;border-radius:16px;border:2px solid color-mix(in srgb,var(--c),transparent 50%);touch-action:none;cursor:crosshair;background:#000}
+.gm-fin{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:20px;background:rgba(5,4,12,.88);border-radius:16px}
+.gm-fin h3{margin:0;font-size:clamp(24px,3.4vw,42px);color:var(--c)}
+.gm-fin p{margin:0;max-width:520px;font-size:clamp(14px,1.3vw,18px);line-height:1.5}
+.gm-fin .gm-puntos-final{font-size:clamp(28px,4vw,50px);font-weight:900}
+.gm-fin button{padding:12px 26px;border:2px solid var(--c);border-radius:999px;background:transparent;color:#fff;font:800 16px Montserrat,sans-serif;cursor:pointer}
+.gm-fin button:hover{background:var(--c);color:#000}
+
+/* Mecánica: memoria de piezas */
+.mem{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.carta{aspect-ratio:1/.8;border:2px solid var(--c);border-radius:14px;background:rgba(255,11,22,.12);color:#fff;font:700 clamp(11px,1.2vw,15px) Montserrat,sans-serif;cursor:pointer;padding:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;transition:transform .25s,background .25s}
+.carta .dorso{font-size:clamp(26px,4vw,44px)}
+.carta.abierta{background:rgba(255,255,255,.12);transform:rotateY(0)}
+.carta.abierta .emoji{font-size:clamp(24px,3.6vw,40px)}
+.carta.hecha{border-color:#38F318;background:rgba(56,243,24,.2);cursor:default}
+.carta:not(.abierta):not(.hecha):hover{transform:scale(1.04)}
+
+/* Arte: mezclador */
+.mezcla{display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:center}
+.mezcla .caja{padding:12px;border:2px solid color-mix(in srgb,var(--c),transparent 50%);border-radius:16px}
+.mezcla .circulo{width:clamp(90px,16vw,150px);aspect-ratio:1;border-radius:50%;margin:8px auto;border:3px solid #fff;transition:background .3s}
+.mezcla h4{margin:0;font-size:clamp(14px,1.4vw,18px)}
+.gotas{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 0}
+.gotas button,.acciones button{padding:10px 16px;border-radius:999px;border:2px solid #fff;font:800 clamp(13px,1.2vw,16px) Montserrat,sans-serif;cursor:pointer}
+.acciones{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.acciones button{background:transparent;color:#fff;border-color:var(--c)}
+.acciones button:hover{background:var(--c);color:#000}
+.msg-arte{min-height:44px;text-align:center;font-weight:700;margin:8px 0}
+
+@media(max-width:560px){.mem{gap:6px}.gm-ventana{padding:10px}}
+
+/* ===== v2: objetos más visibles + juegos nuevos ===== */
+.gm-ventana{background:rgba(14,10,36,.98)}
+.gm-ayuda{font-size:clamp(14px,1.2vw,18px);color:#eceaf7;line-height:1.45}
+.gm-hud{font-size:clamp(17px,1.8vw,24px)}
+.gm-sonido{width:40px;height:40px;border-radius:50%;border:2px solid var(--c);background:transparent;color:#fff;font-size:18px;cursor:pointer}
+.gm-sonido:hover{background:var(--c)}
+.gm-canvas{border-width:3px;border-color:var(--c)}
+
+/* Mecánica: cartas bien visibles */
+.mem{gap:12px}
+.carta{background:rgba(255,255,255,.14);border:3px solid #FF5A4A;color:#fff;font:800 clamp(13px,1.4vw,18px) Montserrat,sans-serif;text-shadow:0 1px 3px #000;box-shadow:0 0 14px rgba(255,90,74,.35)}
+.carta .dorso{font-size:clamp(34px,5vw,56px);filter:drop-shadow(0 0 8px #FF5A4A)}
+.carta.abierta{background:#fff;color:#14102e;text-shadow:none;border-color:#FFD54A}
+.carta.abierta .emoji{font-size:clamp(32px,4.4vw,52px)}
+.carta.hecha{background:#1f8f2e;color:#fff;border-color:#7CFF6B;box-shadow:0 0 18px rgba(124,255,107,.6)}
+
+/* Arte: mezclador más claro */
+.mezcla .circulo{width:clamp(110px,20vw,180px);border-width:5px;box-shadow:0 0 22px rgba(255,255,255,.45)}
+.mezcla h4{font-size:clamp(16px,1.6vw,22px)}
+.mezcla .caja{background:rgba(255,255,255,.07);border-width:3px}
+.gotas button{font-size:clamp(15px,1.4vw,19px);padding:12px 20px;box-shadow:0 0 14px rgba(255,255,255,.35)}
+.msg-arte{font-size:clamp(15px,1.4vw,20px)}
+
+/* Cosmetología 2: rutina de cuidado */
+.rut{text-align:center}
+.rut-titulo{margin:0 0 6px;font-size:clamp(20px,2.4vw,32px);color:#7CFF6B}
+.rut-paso-actual{font-weight:800;font-size:clamp(15px,1.5vw,20px);color:#FFE600;margin-bottom:10px}
+.rut-pasos{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.rut-carta{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:130px;padding:12px 8px;border:3px solid #7CFF6B;border-radius:18px;background:rgba(255,255,255,.14);color:#fff;font:800 clamp(14px,1.4vw,19px) Montserrat,sans-serif;text-shadow:0 1px 3px #000;cursor:pointer;transition:transform .2s,background .2s;box-shadow:0 0 14px rgba(124,255,107,.3)}
+.rut-carta:hover:not(.ok){transform:scale(1.05);background:rgba(255,255,255,.24)}
+.rut-emoji{font-size:clamp(38px,5vw,58px);filter:drop-shadow(0 0 8px #fff)}
+.rut-carta.ok{background:#1f8f2e;border-color:#fff;cursor:default}
+.rut-num{position:absolute;top:-12px;left:-12px;width:34px;height:34px;border-radius:50%;background:#FFE600;color:#000;font-weight:900;display:none;align-items:center;justify-content:center;text-shadow:none}
+.rut-carta.ok .rut-num{display:flex}
+.rut-carta.mal{animation:rutSacudir .45s;border-color:#FF3222;background:rgba(255,50,34,.35)}
+@keyframes rutSacudir{0%,100%{transform:translateX(0)}20%{transform:translateX(-10px)}40%{transform:translateX(10px)}60%{transform:translateX(-8px)}80%{transform:translateX(8px)}}
+.rut-msg{min-height:52px;margin:14px 0 0;font-weight:700;font-size:clamp(14px,1.3vw,18px);line-height:1.4}
+
+/* ===== v3: pantalla de inicio, cuenta regresiva, pausa y estrellas ===== */
+.gm-escena{min-height:300px}
+.gm-inicio{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:22px;background:rgba(8,6,20,.93);border-radius:16px}
+.gm-inicio.gm-transparente{background:rgba(8,6,20,.55)}
+.gm-inicio h3{margin:0;font-size:clamp(22px,3vw,38px);color:var(--c)}
+.gm-instr{margin:0;max-width:560px;font-size:clamp(15px,1.5vw,20px);line-height:1.55;color:#fff}
+.gm-estrellas-guia{font-weight:800;font-size:clamp(13px,1.2vw,17px);color:#FFD54A;letter-spacing:.5px}
+.gm-btn{padding:14px 34px;border:3px solid var(--c);border-radius:999px;background:var(--c);color:#000;font:900 clamp(17px,1.7vw,22px) Montserrat,sans-serif;cursor:pointer;box-shadow:0 0 22px color-mix(in srgb,var(--c),transparent 40%);transition:transform .2s}
+.gm-btn:hover,.gm-btn:focus-visible{transform:scale(1.07);outline:none}
+.gm-cuenta{font:900 clamp(80px,16vw,160px) Montserrat,sans-serif;color:#fff;text-shadow:0 0 30px var(--c),0 4px 0 #000;animation:gmCuenta .7s ease-out}
+@keyframes gmCuenta{from{transform:scale(1.8);opacity:0}to{transform:scale(1);opacity:1}}
+.gm-estrellas{font-size:clamp(34px,5vw,60px);color:#FFD54A;letter-spacing:6px;text-shadow:0 0 16px rgba(255,213,74,.7)}
+.gm-estrellas:empty{display:none}
+@media(prefers-reduced-motion:reduce){.gm-cuenta{animation:none}}
+.gm-record{font:900 clamp(16px,1.8vw,24px) Montserrat,sans-serif;color:#7CFF6B}.gm-record:empty{display:none}

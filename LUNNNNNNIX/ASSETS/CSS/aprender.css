@@ -1,0 +1,85 @@
+:root{--bg:#05040a;--panel:#0d0b14;--cream:#FFFFFF;--muted:#928b83;--gold:#2B35FF;--line:rgba(212,175,106,.18);--accent:#2B35FF}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}body{background:radial-gradient(circle at 65% 45%,rgba(132,80,255,.09),transparent 32%),var(--bg);color:var(--cream);font-family:'Montserrat',Arial,sans-serif}.top{height:74px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 30px;background:rgba(5,4,10,.8);backdrop-filter:blur(16px)}.brand{color:var(--cream);text-decoration:none;font-size:12.76px;letter-spacing:2px}.brand:first-letter{color:var(--gold)}.stats{display:flex;gap:8px;align-items:center}.stats span,.stats button{border:1px solid var(--line);border-radius:11px;padding:10px 12px;background:rgba(255,255,255,.03);color:var(--cream);font-size:11.6px}.stats button{cursor:pointer}.layout{height:calc(100vh - 74px);display:grid;grid-template-columns:250px minmax(430px,1fr) 230px;gap:20px;padding:22px 28px}.sidebar,.journey,.side{min-height:0}.sidebar{display:flex;flex-direction:column}.sidebar small,.journey small,.side small,.profile small{font-size:9.28px;letter-spacing:2px;color:var(--gold);font-weight:700}.sidebar h1,.journey h2,.profile h2{font:700 48.72px 'Montserrat',Arial,sans-serif;margin:4px 0}.sidebar p,.journey header p,.side p{font-size:11.6px;line-height:1.6;color:var(--muted)}#mundos{display:flex;flex-direction:column;gap:6px;margin-top:10px;overflow:auto}.world{display:grid;grid-template-columns:34px 1fr auto;gap:8px;align-items:center;padding:8px;border:1px solid transparent;border-radius:12px;background:transparent;color:var(--cream);text-align:left;cursor:pointer}.world.active{background:rgba(255,255,255,.045);border-color:var(--line)}.worldIcon{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.05)}.world b{display:block;font-size:10.44px}.world em{display:block;font-style:normal;color:var(--muted);font-size:8.12px;margin-top:3px}.total{margin-top:auto;border:1px solid var(--line);padding:13px;border-radius:14px}.total>b{float:right;font-size:10.44px}.total i,.side i{display:block;height:4px;background:#ffffff12;border-radius:10px;margin-top:10px;overflow:hidden}.total em,.side i em{display:block;height:100%;width:0;background:var(--accent);border-radius:10px}.journey{border:1px solid var(--line);border-radius:20px;background:#0d0b1499;overflow:hidden;display:flex;flex-direction:column}.journey header{padding:23px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}.journey header strong{color:var(--accent);font-size:12.76px}.ruta{overflow:auto;min-height:0;flex:1;padding:22px;display:flex;flex-direction:column;align-items:center;gap:12px}.lesson{width:min(430px,92%);min-height:78px;border:1px solid var(--line);border-radius:17px;background:#ffffff06;color:var(--cream);display:grid;grid-template-columns:55px 1fr auto;gap:10px;align-items:center;text-align:left;padding:9px;cursor:pointer;position:relative}.lesson:after{content:'';position:absolute;left:50%;top:100%;height:12px;border-left:1px solid var(--line)}.lesson:last-child:after{display:none}.lesson.lock{opacity:.4;cursor:not-allowed}.lesson.done{border-color:#2B35FF66}.lessonIcon{width:50px;height:50px;border-radius:50%;display:grid;place-items:center;background:#ffffff09;font-size:23.2px}.lesson b{font-size:11.6px}.lesson p{margin:4px 0 0;font-size:9.28px;color:var(--muted)}.side{display:flex;flex-direction:column;gap:10px}.side>div{border:1px solid var(--line);border-radius:16px;padding:17px;background:#ffffff05}.side h3{font-size:13.92px}.side .logro{margin-top:auto}.logro>b{display:block;font-size:37.12px;margin:18px 0 3px}.modal{position:fixed;inset:0;display:none;place-items:center;background:#000b;backdrop-filter:blur(10px);z-index:20;padding:20px}.modal.open{display:grid}.window{width:min(600px,94vw);position:relative;background:#0d0b14;border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 30px 100px #000}.close{position:absolute;right:15px;top:12px;width:32px;height:32px;border:1px solid var(--line);border-radius:50%;background:transparent;color:white;font-size:22.04px;cursor:pointer}.track{height:5px;background:#ffffff12;border-radius:10px;margin-right:50px}.track i{display:block;height:100%;width:20%;background:var(--accent);border-radius:10px}.window>#paso{position:absolute;right:30px;top:31px;font-size:9.28px;color:var(--muted)}.qK{color:var(--gold);font-size:9.28px;letter-spacing:2px;font-weight:700}.qTitle{font:700 44.08px 'Montserrat',Arial,sans-serif;margin:10px 0}.qText{font-size:13.92px;line-height:1.6}.answers{display:grid;gap:8px}.answer,.next{padding:13px;border:1px solid var(--line);border-radius:11px;background:#ffffff05;color:var(--cream);text-align:left;cursor:pointer;font-size:11.6px}.answer.correct{border-color:#32E34E;background:#32E34E12}.answer.wrong{border-color:#FF0B16;background:#FF0B1612}.answer:disabled{cursor:default}.feedback{min-height:30px;font-size:10.44px;padding-top:9px}.next{width:100%;background:var(--accent);border:0;text-align:center;font-weight:700;letter-spacing:1px}.result{text-align:center}.result strong{font-size:58px;display:block;margin:15px}.result h2{font:700 46.4px 'Montserrat',Arial,sans-serif}.result .earned{color:var(--gold);font-size:23.2px;font-weight:700}.profile{text-align:center}.profile h2{margin-bottom:0}.big b{display:block;font:800 81.2px 'Montserrat',Arial,sans-serif;color:var(--gold)}.big small{display:block}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:20px}.grid div{border:1px solid var(--line);border-radius:11px;padding:12px}.grid b,.grid small{display:block}.grid b{font-size:18.56px}.grid small{margin-top:3px;color:var(--muted)}@media(max-width:950px){.layout{grid-template-columns:210px 1fr}.side{display:none}}@media(max-width:700px){html,body{overflow:auto}.layout{height:auto;min-height:calc(100vh - 74px);display:block;padding:14px}.sidebar{height:220px}.world{min-width:170px}.journey{height:calc(100vh - 310px);min-height:430px}.stats span{padding:8px}.stats span:nth-child(3){display:none}}
+
+
+/* =========================================================
+   MONTSERRAT · FAMILIA COMPLETA + ICONOGRAFÍA
+========================================================= */
+body,.top,.layout,.sidebar,.journey,.side,.modal,.window,button,input{font-family:'Montserrat',Arial,sans-serif}
+.sidebar h1,.journey h2,.qTitle,.result h2,.profile h2,.big b{font-family:'Montserrat',Arial,sans-serif}
+.sidebar h1,.journey h2,.qTitle,.result h2,.profile h2{font-weight:700;letter-spacing:-.8px}
+.big b{font-weight:800}
+.worldIcon,.lessonIcon{font-family:'Montserrat',Arial,sans-serif;font-weight:700}
+
+
+/* Iconografía y color unificados con Inicio */
+.worldIcon,.lessonIcon{border:1px solid rgba(212,175,106,.12);color:var(--gold)}
+.world.active .worldIcon{background:rgba(212,175,106,.10);border-color:rgba(212,175,106,.28)}
+.lesson.done .lessonIcon{background:rgba(212,175,106,.10);color:var(--gold)}
+.next{background:var(--gold);color:#08070a}
+.next:hover{filter:brightness(1.06)}
+.answer:hover:not(:disabled){border-color:rgba(212,175,106,.34);background:rgba(212,175,106,.05)}
+.stats span:first-child{color:#FF6A13}.stats span:nth-child(2){color:var(--gold)}.stats span:nth-child(3){color:#FF3DEE}
+
+
+/* =========================================================
+   LUNIX · COLORES DE LOS MUNDOS · PALETA XANDRO
+========================================================= */
+.world:nth-child(1) .worldIcon{color:#3786FF;border-color:#3786FF44}
+.world:nth-child(2) .worldIcon{color:#FF0B16;border-color:#FF0B1644}
+.world:nth-child(3) .worldIcon{color:#FF6A13;border-color:#FF6A1344}
+.world:nth-child(4) .worldIcon{color:#BB3AFF;border-color:#BB3AFF44}
+.world:nth-child(5) .worldIcon{color:#32E34E;border-color:#32E34E44}
+
+/* Acentos secundarios de la paleta por mundo */
+.world.active:nth-child(1){border-color:#3786FF55}
+.world.active:nth-child(2){border-color:#FF0B1655}
+.world.active:nth-child(3){border-color:#FF6A1355}
+.world.active:nth-child(4){border-color:#BB3AFF55}
+.world.active:nth-child(5){border-color:#32E34E55}
+
+
+/* LUNIX · movimiento unificado con Inicio */
+:root{--motion-fast:180ms;--motion-normal:260ms;--motion-ease:cubic-bezier(.2,.75,.25,1)}
+button,.world,.lesson,.answer,.next,.close,.side>div,.total,.stats span{transition:transform var(--motion-normal) var(--motion-ease),border-color var(--motion-normal) ease,background-color var(--motion-normal) ease,box-shadow var(--motion-normal) ease,opacity var(--motion-normal) ease}
+.world:hover:not(.active),.answer:hover:not(:disabled){transform:translateY(-1px)}
+.lesson:not(.lock):hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 8px 24px #0003}
+.lessonIcon,.worldIcon{transition:transform var(--motion-normal) var(--motion-ease),background-color var(--motion-normal) ease,color var(--motion-normal) ease}
+.lesson:not(.lock):hover .lessonIcon,.world:hover .worldIcon{transform:scale(1.06)}
+.next:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.close:hover{transform:rotate(90deg)}
+.modal.open .window{animation:luLearningModalIn 260ms var(--motion-ease) both}
+@keyframes luLearningModalIn{from{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+/* Selección de mundo y transiciones accesibles */
+.world{position:relative;isolation:isolate;transition:transform .22s ease,border-color .22s ease,background-color .22s ease,box-shadow .22s ease}
+.world.active{background:linear-gradient(100deg,rgba(43,53,255,.15),rgba(187,58,255,.06));border-color:var(--world-color,#2B35FF);box-shadow:inset 3px 0 0 var(--world-color,#2B35FF),0 0 18px color-mix(in srgb,var(--world-color,#2B35FF) 12%,transparent)}
+.world.active::after{content:'✓';position:absolute;right:8px;top:5px;width:15px;height:15px;display:grid;place-items:center;border-radius:50%;background:var(--world-color,#2B35FF);color:#fff;font-size:10.44px;font-weight:800}
+.world:nth-child(1){--world-color:#3786FF}.world:nth-child(2){--world-color:#FF0B16}.world:nth-child(3){--world-color:#FF6A13}.world:nth-child(4){--world-color:#BB3AFF}.world:nth-child(5){--world-color:#32E34E}
+.world.active .worldIcon{background:color-mix(in srgb,var(--world-color,#2B35FF) 18%,transparent);border-color:var(--world-color,#2B35FF);box-shadow:0 0 15px color-mix(in srgb,var(--world-color,#2B35FF) 20%,transparent)}
+.ruta.world-switch-in{animation:luWorldSwitch .28s ease both}
+@keyframes luWorldSwitch{from{opacity:.55;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.ruta.world-switch-in{animation:none}}
+
+/* MODO PROYECCIÓN: ampliar lecciones y controles sin tocar la experiencia VR */
+@media (min-width: 1500px) {
+  .top { height: 94px; }
+  .brand { font-size: 21px; }
+  .stats span, .stats button { font-size: 18px; padding: 13px 16px; }
+  .layout { height: calc(100vh - 94px); grid-template-columns: 300px minmax(430px,1fr) 280px; gap: 24px; }
+  .sidebar small, .journey small, .side small, .profile small { font-size: 16px; }
+  .sidebar h1, .journey h2, .profile h2 { font-size: 58px; }
+  .sidebar p, .journey header p, .side p { font-size: 19px; line-height: 1.5; }
+  .world b, .lesson b { font-size: 20px; }
+  .world em, .lesson p { font-size: 16px; }
+  .journey header strong { font-size: 21px; }
+  .side h3 { font-size: 23px; }
+  .qK, .window>#paso { font-size: 16px; }
+  .qTitle { font-size: 58px; }
+  .qText { font-size: 23px; line-height: 1.5; }
+  .answer, .next { font-size: 20px; padding: 17px; }
+  .feedback { font-size: 18px; }
+  .result h2 { font-size: 58px; }
+  .grid b { font-size: 23px; }
+  .grid small { font-size: 16px; }
+}

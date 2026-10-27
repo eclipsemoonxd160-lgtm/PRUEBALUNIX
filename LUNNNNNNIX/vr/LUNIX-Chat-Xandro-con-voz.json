@@ -1,0 +1,168 @@
+{
+  "name": "LUNIX – Chat web de Xandro (con voz)",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "initialMessages": "Hola, soy Xandro, el asistente de LUNIX. ¿En qué te puedo ayudar hoy?",
+        "options": {
+          "allowedOrigins": "*",
+          "inputPlaceholder": "Escribe tu pregunta...",
+          "subtitle": "Tu guía en el universo LUNIX",
+          "title": "Xandro · LUNIX",
+          "responseMode": "lastNode"
+        }
+      },
+      "id": "ae665286-0115-4074-aa26-b87c72daa134",
+      "name": "Chat web LUNIX",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.5,
+      "position": [
+        0,
+        16
+      ],
+      "webhookId": "75ce1648-ac0d-4e30-aa3b-d58de7541836"
+    },
+    {
+      "parameters": {
+        "agentId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "c9KVioeWSKgR7FHE",
+          "cachedResultName": "Xandro – Asistente de LUNIX"
+        },
+        "message": "={{ $json.chatInput }}",
+        "advanced": {
+          "enableStreaming": false,
+          "session": {
+            "session": {
+              "sessionIdType": "customKey",
+              "sessionKey": "=lunix-web-{{ $json.sessionId }}"
+            }
+          }
+        }
+      },
+      "id": "e0d27f71-6c7f-4a6b-8be0-2f40675d8d76",
+      "name": "Preguntar a Xandro",
+      "type": "n8n-nodes-base.messageAnAgent",
+      "typeVersion": 3.1,
+      "position": [
+        224,
+        -64
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Prepara el texto para la voz: sin emojis, enlaces ni signos\nconst respuesta = $json.output ?? $json.text ?? \"\";\n\nconst limpio = String(respuesta)\n  .replace(/\\[(.*?)\\]\\(.*?\\)/g, \"$1\")\n  .replace(/https?:\\/\\/\\S+/g, \"\")\n  .replace(/\\p{Extended_Pictographic}/gu, \" \")\n  .replace(/[\\u200d\\ufe0f]/g, \"\")\n  .replace(/[^\\p{L}\\p{N}\\s.,;:¿?¡!]/gu, \" \")\n  .replace(/\\s+/g, \" \")\n  .trim();\n\nreturn [{ json: { output: respuesta, textoVoz: limpio || \".\" } }];"
+      },
+      "id": "1fb0e086-3cc1-4d08-895d-1b0554596874",
+      "name": "Preparar voz",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        448,
+        -64
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.elevenlabs.io/v1/text-to-speech/WOY6pnQ1WCg0mrOZ54lM?output_format=mp3_44100_128",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "xi-api-key",
+              "value": "PEGA_AQUI_TU_API_KEY_DE_ELEVENLABS"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ text: $json.textoVoz, model_id: 'eleven_multilingual_v2', voice_settings: { stability: 0.5, similarity_boost: 0.8 } }) }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "id": "9fe04163-5dd7-4711-8720-98e379348d7c",
+      "name": "ElevenLabs – Voz de Xandro",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        672,
+        -64
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Junta el texto y el audio (base64) en una sola respuesta para el chat\nlet audio = null;\ntry {\n  const buf = await this.helpers.getBinaryDataBuffer(0, 'data');\n  audio = buf.toString('base64');\n} catch (e) {\n  // Si ElevenLabs falló, se responde solo con texto\n}\n\nreturn [{\n  json: {\n    output: $('Preparar voz').first().json.output,\n    audio: audio\n  }\n}];"
+      },
+      "id": "c104c3e5-22bd-433d-b910-5ca7d4314b38",
+      "name": "Respuesta al chat",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        896,
+        -64
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Chat web LUNIX": {
+      "main": [
+        [
+          {
+            "node": "Preguntar a Xandro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preguntar a Xandro": {
+      "main": [
+        [
+          {
+            "node": "Preparar voz",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preparar voz": {
+      "main": [
+        [
+          {
+            "node": "ElevenLabs – Voz de Xandro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ElevenLabs – Voz de Xandro": {
+      "main": [
+        [
+          {
+            "node": "Respuesta al chat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "tags": []
+}

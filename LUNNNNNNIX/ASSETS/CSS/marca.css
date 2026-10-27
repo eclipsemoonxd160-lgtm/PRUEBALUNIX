@@ -1,0 +1,64 @@
+/* Estilo de marca compartido por las páginas alternas (Aprender, Juegos, Videos) */
+:root{--gold:#F238FF;--accent:#8450FF;--marca:linear-gradient(90deg,#F238FF,#F40898,#FF3222,#FFA424,#93FF24,#3396FF,#8450FF);}
+h1,.intro h1,.sidebar h1{overflow-wrap:break-word;}
+.intro h1 span,.big b{background:var(--marca);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.sidebar h1,.journey h2{font-size:clamp(30px,3.4vw,52px)!important;line-height:1.05;}
+/* tarjetas con borde de color */
+.media-card,.game-card,.recommendation,.stats span,.next,.world,.lesson{background:rgba(12,8,30,.62)!important;border:2px solid var(--c,#8450FF)!important;}
+:is(.media-card,.game-card,.recommendation,.lesson):nth-child(8n+1){--c:#FF3222}:is(.media-card,.game-card,.recommendation,.lesson):nth-child(8n+2){--c:#FFA424}
+:is(.media-card,.game-card,.recommendation,.lesson):nth-child(8n+3){--c:#93FF24}:is(.media-card,.game-card,.recommendation,.lesson):nth-child(8n+4){--c:#3396FF}
+:is(.media-card,.game-card,.recommendation,.lesson):nth-child(8n+5){--c:#F238FF}:is(.media-card,.game-card,.recommendation,.lesson):nth-child(8n+6){--c:#F5B82F}
+:is(.media-card,.game-card,.recommendation,.lesson):nth-child(8n+7){--c:#38F318}:is(.media-card,.game-card,.recommendation,.lesson):nth-child(8n+8){--c:#F40898}
+.world:nth-child(1){--c:#3396FF}.world:nth-child(2){--c:#FF3222}.world:nth-child(3){--c:#FFA424}.world:nth-child(4){--c:#F5B82F}.world:nth-child(5){--c:#F40898}
+.media-card:hover,.game-card:hover,.world:hover,.lesson:not(.lock):hover{box-shadow:0 0 22px var(--c,#8450FF);}
+.stats span:nth-child(1){--c:#FF3222}.stats span:nth-child(2){--c:#FFA424}.stats span:nth-child(3){--c:#F40898}.stats span:nth-child(4){--c:#3396FF}
+.filter{border:2px solid #3396FF!important;background:rgba(12,8,30,.6)!important;font-size:clamp(14px,1.1vw,17px);}
+.filter:nth-child(2){border-color:#FF3222!important}.filter:nth-child(3){border-color:#FFA424!important}.filter:nth-child(4){border-color:#F5B82F!important}.filter:nth-child(5){border-color:#3396FF!important}.filter:nth-child(6){border-color:#F40898!important}
+.filter.active{background:var(--marca)!important;color:#000!important;font-weight:800;}
+/* botón volver */
+.back,.volver-inicio{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border:2px solid #93FF24;border-radius:999px;background:rgba(12,8,30,.7);color:#fff;font:800 clamp(14px,1.1vw,17px) Montserrat,sans-serif;text-decoration:none;transition:.3s;}
+.back:hover,.volver-inicio:hover{background:#93FF24;color:#000;transform:translateX(-4px);}
+.volver-inicio{position:fixed;right:20px;bottom:20px;z-index:60;box-shadow:0 0 18px rgba(147,255,36,.5);}
+
+/* ===== v4: fondo con imágenes + lección automática ===== */
+:root{--panel:rgba(13,11,20,.62);}
+.top{background:rgba(5,4,10,.65)!important;backdrop-filter:blur(8px);}
+.carrusel-inicio{position:fixed;inset:0;z-index:-1;background:#000;}
+.carrusel-inicio div{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;filter:brightness(.5) saturate(1.2);animation:fadeSlide 30s infinite;}
+.carrusel-inicio div:nth-child(2){animation-delay:6s}.carrusel-inicio div:nth-child(3){animation-delay:12s}.carrusel-inicio div:nth-child(4){animation-delay:18s}.carrusel-inicio div:nth-child(5){animation-delay:24s}
+@keyframes fadeSlide{0%{opacity:0;transform:scale(1)}4%{opacity:1}20%{opacity:1}26%{opacity:0;transform:scale(1.08)}100%{opacity:0}}
+.lx-abrir{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:60;padding:12px 24px;border:2px solid #F238FF;border-radius:999px;background:rgba(12,8,30,.8);color:#fff;font:800 clamp(14px,1.1vw,17px) Montserrat,sans-serif;cursor:pointer;box-shadow:0 0 18px rgba(242,56,255,.5);}
+.lx-abrir:hover{background:#F238FF;color:#000;}
+.lx-modal{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.72);display:flex;align-items:center;justify-content:center;}
+.lx-modal[hidden]{display:none;}
+.lx-ventana{position:relative;width:min(780px,94vw);max-height:90vh;overflow-y:auto;padding:28px;border:3px solid #F238FF;border-radius:24px;background:rgba(12,8,30,.94);color:#fff;font-family:Montserrat,sans-serif;}
+.lx-ventana h2{font-size:clamp(24px,2.6vw,38px);margin-bottom:8px;}.lx-ventana h3{margin:14px 0 8px;font-size:clamp(16px,1.4vw,21px);}
+.lx-ventana p,.lx-lectura{font-size:clamp(14px,1.15vw,18px);line-height:1.55;margin:8px 0;}
+.lx-cerrar{position:absolute;top:12px;right:14px;width:38px;height:38px;border-radius:50%;border:2px solid #FF3222;background:transparent;color:#fff;font-size:22px;cursor:pointer;}
+.lx-buscar{display:flex;gap:10px;margin:12px 0;}.lx-buscar input{flex:1;padding:12px 16px;border-radius:999px;border:2px solid #3396FF;background:rgba(255,255,255,.08);color:#fff;font-size:16px;}
+.lx-buscar button,.lx-sig{padding:12px 24px;border:2px solid #93FF24;border-radius:999px;background:transparent;color:#fff;font:800 16px Montserrat,sans-serif;cursor:pointer;margin-top:10px;}
+.lx-buscar button:hover,.lx-sig:hover{background:#93FF24;color:#000;}
+.lx-chips{display:flex;flex-wrap:wrap;gap:8px;}.lx-chips button{padding:8px 16px;border-radius:999px;border:2px solid var(--c);background:rgba(255,255,255,.06);color:#fff;font:600 14px Montserrat,sans-serif;cursor:pointer;}
+.lx-chips button:hover{background:var(--c);color:#000;}
+.lx-img{width:100%;max-height:230px;object-fit:cover;border-radius:14px;margin:8px 0;}
+.lx-op{display:block;width:100%;text-align:left;margin:8px 0;padding:14px 18px;border-radius:14px;border:2px solid #8450FF;background:rgba(255,255,255,.06);color:#fff;font:600 17px Montserrat,sans-serif;cursor:pointer;}
+.lx-op.ok{border-color:#38F318;background:rgba(56,243,24,.22);}.lx-op.bad{border-color:#FF3222;background:rgba(255,50,34,.22);}
+.lx-barra{height:12px;border-radius:99px;background:rgba(255,255,255,.12);overflow:hidden;}.lx-barra i{display:block;height:100%;background:linear-gradient(90deg,#93FF24,#38F318);transition:.4s;}
+.lx-vidas{color:#FF3222;text-align:right;}
+
+
+/* LUNIX · fondos fotográficos propios para páginas internas (diferentes al inicio) */
+body.pagina-juegos, body.pagina-videos, body.pagina-aprender { position:relative; isolation:isolate; background:#07070d!important; }
+body.pagina-juegos::before, body.pagina-videos::before, body.pagina-aprender::before {
+  content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background-size:cover; background-position:center; background-repeat:no-repeat;
+  filter:brightness(.34) saturate(.9); transform:scale(1.015);
+}
+body.pagina-juegos::before { background-image:url("https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=2400&q=85"); }
+body.pagina-videos::before { background-image:url("https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=2400&q=85"); }
+body.pagina-aprender::before { background-image:url("https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=2400&q=85"); }
+body.pagina-juegos::after, body.pagina-videos::after, body.pagina-aprender::after {
+  content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:linear-gradient(180deg,rgba(5,5,12,.38),rgba(5,5,12,.72));
+}
+@media(prefers-reduced-motion:reduce){body.pagina-juegos::before,body.pagina-videos::before,body.pagina-aprender::before{transform:none}}

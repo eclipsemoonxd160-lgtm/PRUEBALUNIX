@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Literary Universe · Más allá del conocimiento</title>
+    <link rel="stylesheet" href="ASSETS/CSS/fuente.css">
+<link rel="stylesheet" href="ASSETS/CSS/index.css">
+    <link rel="icon" type="image/png" href="ASSETS/Imagenes/xandro.png">
+    <link rel="stylesheet" href="ASSETS/CSS/mejoras.css">
+</head>
+
+<body>
+    <div class="carrusel-inicio" aria-hidden="true">
+        <div style="background-image:url('ASSETS/Imagenes/lenny-kuhne-jHZ70nRk7Ns-unsplash.jpg')"></div>
+        <div style="background-image:url('ASSETS/Imagenes/dan-farrell-fT49QnFucQ8-unsplash.jpg')"></div>
+        <div style="background-image:url('ASSETS/Imagenes/jessica-kantak-bailey-WMCvwBTWSi0-unsplash.jpg')"></div>
+        <div style="background-image:url('ASSETS/Imagenes/kris-mikael-krister-aGihPIbrtVE-unsplash.jpg')"></div>
+        <div style="background-image:url('ASSETS/Imagenes/look-studio-HtXyytr9304-unsplash.jpg')"></div>
+        <video class="video-inicio" autoplay muted loop playsinline><source src="ASSETS/Videos/fondo.mp4" type="video/mp4" onerror="this.parentNode.remove()"></video>
+    </div>
+
+    <!-- FONDOS -->
+    <div class="fondos">
+
+        <section class="bg-image">
+            <img src="ASSETS/Imagenes/look-studio-HtXyytr9304-unsplash.jpg" alt="Cosmetología">
+        </section>
+
+        <section class="bg-image">
+            <img src="ASSETS/Imagenes/dan-farrell-fT49QnFucQ8-unsplash.jpg" alt="Arte">
+        </section>
+
+        <section class="bg-image">
+            <img src="ASSETS/Imagenes/jessica-kantak-bailey-WMCvwBTWSi0-unsplash.jpg" alt="Realeza">
+        </section>
+
+        <section class="bg-image">
+            <img src="ASSETS/Imagenes/lenny-kuhne-jHZ70nRk7Ns-unsplash.jpg" alt="Mecánica">
+        </section>
+
+        <section class="bg-image">
+            <img src="ASSETS/Imagenes/kris-mikael-krister-aGihPIbrtVE-unsplash.jpg" alt="Biología marina">
+        </section>
+
+    </div>
+
+
+    <!-- MENÚ LATERAL -->
+    <aside class="menu-lateral">
+
+       
+
+       
+
+        <button aria-label="Manual corporativo" id="btnBiblioteca"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5A2.5 2.5 0 0 1 7.5 3H19v17H7.5A2.5 2.5 0 0 0 5 22z"/><path d="M5 5.5V22M8.5 7H15.5M8.5 11H15.5M8.5 15H13.5"/></svg></button>
+
+        <button aria-label="Diapositivas" id="btnFavoritos"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="15" rx="2"/><path d="M3 9h18M9 4v15"/><path d="m13 12 4 2.5-4 2.5z"/></svg></button>
+        <a class="menu-aprender" href="aprender.html" aria-label="Aprender"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/><path d="M17.8 5.8 20 4"/></svg></a>
+        <a class="menu-videos" href="videos.html" aria-label="Videos" title="Videos"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="13" height="14" rx="2"/><path d="m16 10 5-3v10l-5-3z"/><path d="m8 9 4 3-4 3z"/></svg></a>
+        <a class="menu-juegos" href="juegos.html" aria-label="Juegos" title="Juegos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8h11a4 4 0 0 1 3.8 5.2l-1 3.1a2 2 0 0 1-3.2 1l-2.1-1.7H9l-2.1 1.7a2 2 0 0 1-3.2-1l-1-3.1A4 4 0 0 1 6.5 8Z"/><path d="M7 10.5v5M4.5 13h5M16.5 12h.01M18.5 14h.01"/></svg></a>
+
+       
+
+    </aside>
+
+
+    <!-- BARRA SUPERIOR: marca + eslogan -->
+    <header class="barra-superior">
+        <p class="eslogan"><span>Más allá del conocimiento</span></p>
+    </header>
+
+    <div id="resultadosIA" class="resultados-ia oculto"></div>
+
+
+    <!-- INICIO -->
+    <main class="inicio">
+
+        <div class="contenido">
+
+            <span class="inicio-kicker">LITERARY EXPERIENCE · XANDRO</span>
+
+            <h1>Literary Universe</h1>
+
+            <p class="inicio-intro">
+                Un universo interactivo donde aprender, descubrir y crear se encuentran en un mismo espacio.
+            </p>
+
+            <p class="inicio-descripcion">
+                Explora cinco mundos de conocimiento, descubre contenidos sobre mecánica, arte, realeza,
+                biología marina y cosmetología, y avanza a tu propio ritmo. Cada planeta representa una
+                nueva experiencia: puedes conocer su contenido, explorar sus recursos y continuar tu camino
+                de aprendizaje acompañado por XANDRO.
+            </p>
+
+            <p class="inicio-descripcion">Cada mundo reúne lecturas, curiosidades, videos, juegos y preguntas. Pulsa un planeta, recorre sus tarjetas y abre cada botón para leer más y descubrir libros que continúan la historia.</p>
+
+            <div class="inicio-tags" aria-label="Áreas de Literary Universe">
+                <span>5 MUNDOS</span>
+                <span>EXPLORA</span>
+                <span>APRENDE</span>
+                <span>IMAGINA</span>
+            </div>
+
+        </div>
+
+
+        <div class="inicio-sistema">
+
+            <div class="sistema" id="sistema">
+
+                <!-- XANDRO -->
+                <button
+                    class="sol"
+                    id="sol"
+                    aria-label="Hablar con XANDRO"
+                >
+
+                    <img
+                        src="ASSETS/Imagenes/xandro.png"
+                        alt="XANDRO"
+                    >
+
+                    <span class="planeta-nombre">
+                        XANDRO
+                    </span>
+
+                </button>
+
+
+                <!-- MECÁNICA -->
+                <button
+                    class="planeta"
+                    data-section="mecanica"
+                    data-radio="14"
+                    data-velocidad="13"
+                    data-inicio="30"
+                    style="--tam:26px; --tema:#FF3222;"
+                    aria-label="Ir a Mecánica"
+                >
+
+                    <span class="planeta-nombre">
+                        Mecánica
+                    </span>
+
+                    <span class="cuerpo cuerpo--mecanica"></span>
+
+                </button>
+
+
+                <!-- ARTE -->
+                <button
+                    class="planeta"
+                    data-section="arte"
+                    data-radio="23"
+                    data-velocidad="9.5"
+                    data-inicio="160"
+                    style="--tam:34px; --tema:#FFA424;"
+                    aria-label="Ir a Arte"
+                >
+
+                    <span class="planeta-nombre">
+                        Arte
+                    </span>
+
+                    <span class="cuerpo cuerpo--arte"></span>
+
+                </button>
+
+
+                <!-- REALEZA -->
+                <button
+                    class="planeta"
+                    data-section="realeza"
+                    data-radio="32"
+                    data-velocidad="7"
+                    data-inicio="250"
+                    style="--tam:38px; --tema:#F5B82F;"
+                    aria-label="Ir a Realeza"
+                >
+
+                    <span class="planeta-nombre">
+                        Realeza
+                    </span>
+
+                    <span class="cuerpo cuerpo--realeza"></span>
+
+                </button>
+
+
+                <!-- BIOLOGÍA MARINA -->
+                <button
+                    class="planeta"
+                    data-section="biologia-marina"
+                    data-radio="41"
+                    data-velocidad="5.2"
+                    data-inicio="95"
+                    style="--tam:32px; --tema:#3396FF;"
+                    aria-label="Abrir Biología marina"
+                >
+
+                    <span class="planeta-nombre">
+                        Biología marina
+                    </span>
+
+                    <span class="cuerpo cuerpo--marina"></span>
+
+                </button>
+
+
+                <!-- COSMETOLOGÍA -->
+                <button
+                    class="planeta"
+                    data-section="cosmetologia"
+                    data-radio="50"
+                    data-velocidad="3.8"
+                    data-inicio="320"
+                    style="--tam:28px; --tema:#F40898;"
+                    aria-label="Ir a Cosmetología"
+                >
+
+                    <span class="planeta-nombre">
+                        Cosmetología
+                    </span>
+
+                    <span class="cuerpo cuerpo--cosmetologia"></span>
+
+                </button>
+
+            </div>
+
+
+            <p class="sistema-ayuda">
+                Pasa el cursor sobre un planeta para descubrir su nombre.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- PANEL DEL MENÚ LATERAL -->
+    <section id="panelLateral" class="panel-lateral" aria-hidden="true">
+        <div class="panel-lateral-contenido">
+            <button id="cerrarPanelLateral" class="panel-lateral-cerrar" aria-label="Cerrar">×</button>
+            <span id="panelLateralEtiqueta" class="panel-lateral-etiqueta">LITERARY UNIVERSE</span>
+            <h2 id="panelLateralTitulo">Biblioteca</h2>
+            <p id="panelLateralDescripcion">Explora tus recursos y contenidos.</p>
+            <div id="panelLateralCuerpo" class="panel-lateral-cuerpo"></div>
+        </div>
+    </section>
+
+    <!-- PANEL DE LOS MUNDOS -->
+    <section
+        id="mundoPanel"
+        class="mundo-panel"
+        aria-hidden="true"
+    >
+
+        <div class="mundo-cola"></div>
+
+        <div class="mundo-contenido">
+
+            <!-- CERRAR -->
+            <button
+                id="cerrarMundo"
+                class="mundo-cerrar"
+                aria-label="Cerrar mundo"
+            >
+                ×
+            </button>
+
+
+            <div class="mundo-layout">
+
+
+                <!-- TIP IZQUIERDO -->
+                <aside class="mundo-tip mundo-tip-izquierdo">
+
+                    <span
+                        class="tip-icon"
+                        id="tipIconoIzq"
+                    >
+                        🌊
+                    </span>
+
+                    <strong id="tipTituloIzq">
+                        CONSEJO
+                    </strong>
+
+                    <p id="tipTextoIzq">
+                        Cuidar los ecosistemas también significa cuidar nuestro futuro.
+                    </p>
+
+                </aside>
+
+
+                <!-- CONTENIDO PRINCIPAL -->
+                <div class="mundo-principal">
+
+                    <div class="mundo-encabezado">
+
+                        <span
+                            class="mundo-etiqueta"
+                            id="mundoEtiqueta"
+                        >
+                            MUNDO 04 · DATOS Y EDUCACIÓN
+                        </span>
+
+                        <h2 id="mundoTitulo">
+                            Biología Marina
+                        </h2>
+
+                        <p id="mundoDescripcion">
+                            Explora los organismos, ecosistemas y fenómenos
+                            que hacen posible la vida en los océanos.
+                        </p>
+
+                    </div>
+
+
+                    <!-- CARRUSEL -->
+                    <div
+                        class="mundo-carrusel"
+                        id="mundoCarrusel"
+                    ></div>
+
+
+                    <!-- BOTONES ABAJO -->
+                    <div class="mundo-controles">
+
+                        <button
+                            id="btnAnterior"
+                            class="slider-btn"
+                            aria-label="Tarjeta anterior"
+                        >
+                            ‹
+                        </button>
+
+                        <div
+                            class="mundo-contador"
+                            id="mundoContador"
+                        >
+                            01 / 09
+                        </div>
+
+                        <button
+                            id="btnSiguiente"
+                            class="slider-btn"
+                            aria-label="Tarjeta siguiente"
+                        >
+                            ›
+                        </button>
+
+                    </div>
+
+
+                    <div class="mundo-ayuda">
+
+                        
+
+                    </div>
+
+                </div>
+
+
+                <!-- TIP DERECHO -->
+                <aside class="mundo-tip mundo-tip-derecho">
+
+                    <span
+                        class="tip-icon"
+                        id="tipIconoDer"
+                    >
+                        🐢
+                    </span>
+
+                    <strong id="tipTituloDer">
+                        DATO CURIOSO
+                    </strong>
+
+                    <p id="tipTextoDer">
+                        Cada ecosistema cumple una función importante dentro del planeta.
+                    </p>
+
+                </aside>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PANEL DE ENLACES RELACIONADOS
+    ====================================================== -->
+    <section id="panelEnlacesRelacionados" class="related-links-panel" aria-hidden="true">
+        <div class="related-links-box">
+            <button id="cerrarEnlacesRelacionados" class="related-links-close" type="button" aria-label="Cerrar">×</button>
+            <span class="related-links-label">LITERARY UNIVERSE · EXPLORAR</span>
+            <h2 id="relatedLinksTitle">Enlaces relacionados</h2>
+            <p id="relatedLinksDescription">Encuentra más información sobre este tema.</p>
+            <div id="relatedLinksList" class="related-links-list"></div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         MANUAL CORPORATIVO Y DIAPOSITIVA
+         Los PDFs pueden colocarse en:
+         ASSETS/Manual/manual-corporativo.pdf
+         ASSETS/Diapositiva/diapositiva.pdf
+    ====================================================== -->
+
+    <section id="panelManual" class="document-panel manual-document-panel" aria-hidden="true">
+        <div class="document-panel-bar">
+            <div>MANUAL CORPORATIVO</div>
+            <button class="document-panel-close" data-close-document="panelManual" aria-label="Cerrar">×</button>
+        </div>
+        <div class="document-panel-body">
+            <iframe
+                src="https://drive.google.com/file/d/1l1wDye-IQZWeCrGqTdKYeO9Db_Ph0aa8/preview"
+                title="Manual corporativo"
+                class="document-frame"
+                loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <section id="panelDiapositiva" class="document-panel slide-document-panel" aria-hidden="true">
+        <div class="document-panel-bar">
+            <div>DIAPOSITIVA</div>
+            <button class="document-panel-close" data-close-document="panelDiapositiva" aria-label="Cerrar">×</button>
+        </div>
+        <div class="document-panel-body">
+            <iframe
+                src="ASSETS/Diapositiva/THE UNIVERSE.pdf (1).pdf.pdf"
+                title="Diapositiva"
+                class="document-frame"
+                loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- El manual se carga desde Google Drive para no incluir el PDF dentro del proyecto. -->
+
+    <!-- Los videos ahora están organizados por secciones en juegos.html. -->
+
+
+    <!-- CHAT DE XANDRO COMPARTIDO CON LA EXPERIENCIA VR -->
+    <section id="chatXandro" class="chat-xandro oculto" role="dialog" aria-label="Chat con XANDRO" aria-modal="false">
+        <div class="chat-xandro-cab">
+            <div class="chat-xandro-identidad"><img src="ASSETS/Imagenes/xandro.png" alt=""><div><strong>XANDRO · LUNIX</strong><small>Tu guía del universo</small></div></div>
+            <div class="chat-xandro-acciones">
+                <button type="button" id="alternarVozXandro" title="Activar o silenciar voz" aria-label="Silenciar voz">🔊</button>
+                <button type="button" id="cerrarChatXandro" title="Cerrar chat" aria-label="Cerrar chat">×</button>
+            </div>
+        </div>
+        <div id="mensajesXandro" class="mensajes-xandro" aria-live="polite"></div>
+        <form id="formChatXandro" class="form-chat-xandro">
+            <input id="entradaChatXandro" type="text" placeholder="Escribe tu pregunta..." autocomplete="off" required>
+            <button type="button" id="microfonoXandro" title="Hablar con XANDRO" aria-label="Hablar con XANDRO">🎤</button>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+        <script src="ASSETS/JS/lecturas.js"></script>
+    <script src="ASSETS/JS/index.js"></script>
+    <script src="ASSETS/JS/animaciones-lunix.js"></script>
+    <script src="ASSETS/JS/chat-xandro.js"></script>
+
+</body>
+</html>

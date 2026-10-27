@@ -1,0 +1,615 @@
+/* =========================================================
+   LUNIX · MEJORAS (letras grandes en Aprender, sistema solar,
+   juegos más visibles). Se carga DESPUÉS de los otros CSS.
+========================================================= */
+
+/* ---------------------------------------------------------
+   1) APRENDER · letras más grandes y fondo oscuro detrás
+--------------------------------------------------------- */
+.pagina-aprender{ text-shadow:0 1px 3px rgba(0,0,0,.9); }
+
+/* Paneles con fondo oscuro para que el texto no se pierda con la foto de fondo */
+.pagina-aprender .sidebar,
+.pagina-aprender .side>div,
+.pagina-aprender .journey{
+  background:rgba(6,4,16,.84)!important;
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+.pagina-aprender .sidebar{ padding:20px; border:1px solid rgba(255,255,255,.14); border-radius:20px; }
+.pagina-aprender .journey{ border:2px solid rgba(255,255,255,.2); }
+.pagina-aprender .journey header{ background:rgba(0,0,0,.35); }
+.pagina-aprender .layout{
+  grid-template-columns:clamp(270px,24vw,380px) minmax(430px,1fr) clamp(250px,21vw,330px);
+  gap:clamp(14px,1.4vw,26px);
+}
+.pagina-aprender .top{ height:clamp(70px,6vw,96px); }
+.pagina-aprender .layout{ height:calc(100vh - clamp(70px,6vw,96px)); }
+.pagina-aprender .brand{ font-size:clamp(15px,1.4vw,22px); font-weight:800; }
+.pagina-aprender .stats span,
+.pagina-aprender .stats button{ font-size:clamp(15px,1.25vw,20px); padding:10px 16px; font-weight:700; background:rgba(0,0,0,.55)!important; }
+
+/* Etiquetas pequeñas (RUTA DE APRENDIZAJE, MISIÓN DEL DÍA...) */
+.pagina-aprender .sidebar small,
+.pagina-aprender .journey small,
+.pagina-aprender .side small,
+.pagina-aprender .profile small{ font-size:clamp(13px,1.05vw,17px); letter-spacing:2px; color:#FFA424; font-weight:800; }
+
+/* Títulos y párrafos */
+.pagina-aprender .sidebar h1,
+.pagina-aprender .journey h2{ font-size:clamp(36px,3.8vw,62px)!important; font-weight:900; }
+.pagina-aprender .sidebar p,
+.pagina-aprender .journey header p,
+.pagina-aprender .side p{ font-size:clamp(15px,1.25vw,20px); line-height:1.5; color:#e9e6f5; }
+.pagina-aprender .journey header strong{ font-size:clamp(20px,1.8vw,30px); }
+
+/* Lista de mundos */
+.pagina-aprender .world{ grid-template-columns:clamp(40px,3.2vw,52px) 1fr auto; padding:10px 12px; gap:12px; }
+.pagina-aprender .worldIcon{ width:clamp(40px,3.2vw,52px); height:clamp(40px,3.2vw,52px); font-size:clamp(20px,1.8vw,28px); background:rgba(255,255,255,.1); }
+.pagina-aprender .world b{ font-size:clamp(16px,1.35vw,22px); font-weight:800; }
+.pagina-aprender .world em{ font-size:clamp(13px,1.05vw,17px); color:#d6d2e6; }
+.pagina-aprender .world.active::after{ width:22px; height:22px; font-size:14px; top:8px; right:10px; }
+.pagina-aprender .total{ background:rgba(0,0,0,.4); }
+.pagina-aprender .total>b{ font-size:clamp(16px,1.35vw,22px); }
+
+/* Lecciones */
+.pagina-aprender .lesson{ width:min(620px,94%); min-height:clamp(86px,7vw,112px); grid-template-columns:clamp(58px,4.6vw,76px) 1fr auto; padding:12px 14px; background:rgba(10,7,26,.9)!important; }
+.pagina-aprender .lessonIcon{ width:clamp(50px,4vw,66px); height:clamp(50px,4vw,66px); font-size:clamp(26px,2.2vw,36px); background:rgba(255,255,255,.1); }
+.pagina-aprender .lesson b{ font-size:clamp(17px,1.5vw,25px); font-weight:800; }
+.pagina-aprender .lesson p{ font-size:clamp(14px,1.1vw,18px); color:#ddd9ec; margin-top:6px; }
+.pagina-aprender .lesson.lock{ opacity:.62; }
+.pagina-aprender .ruta{ gap:clamp(14px,1.4vw,22px); }
+
+/* Panel derecho */
+.pagina-aprender .side h3{ font-size:clamp(19px,1.7vw,28px); }
+.pagina-aprender .logro>b{ font-size:clamp(44px,4vw,64px); }
+
+/* Ventana de lección (preguntas) */
+.pagina-aprender .window{ width:min(760px,94vw); background:rgba(8,6,20,.97); }
+.pagina-aprender .qK,
+.pagina-aprender .window>#paso{ font-size:clamp(13px,1.05vw,17px); color:#FFA424; }
+.pagina-aprender .qTitle{ font-size:clamp(34px,3.6vw,56px); }
+.pagina-aprender .qText{ font-size:clamp(17px,1.6vw,25px); line-height:1.55; }
+.pagina-aprender .answer,
+.pagina-aprender .next{ font-size:clamp(16px,1.4vw,22px); padding:clamp(13px,1.2vw,18px); font-weight:600; background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.3); }
+.pagina-aprender .feedback{ font-size:clamp(15px,1.3vw,21px); }
+.pagina-aprender .result h2{ font-size:clamp(34px,3.6vw,56px); }
+.pagina-aprender .grid b{ font-size:clamp(20px,2vw,30px); }
+.pagina-aprender .grid small{ font-size:clamp(12px,1vw,16px); }
+
+@media(max-width:950px){
+  .pagina-aprender .layout{ grid-template-columns:clamp(230px,30vw,300px) 1fr; }
+}
+@media(max-width:700px){
+  .pagina-aprender .layout{ display:block; height:auto; }
+  .pagina-aprender .sidebar{ height:auto; margin-bottom:14px; }
+  .pagina-aprender .journey{ height:auto; min-height:520px; }
+}
+
+/* ---------------------------------------------------------
+   2) SISTEMA SOLAR · mejor diseño (misma funcionalidad)
+--------------------------------------------------------- */
+.inicio-sistema{
+  background:
+    radial-gradient(circle at 50% 46%,rgba(80,60,255,.20),transparent 52%),
+    radial-gradient(circle at 80% 85%,rgba(244,8,152,.10),transparent 38%),
+    rgba(6,4,18,.82)!important;
+  border:1px solid rgba(132,80,255,.38)!important;
+  box-shadow:0 0 60px rgba(80,60,255,.18),0 30px 100px rgba(0,0,0,.4)!important;
+}
+.inicio-sistema::before{ font-size:clamp(13px,1vw,16px)!important; color:#93FF24!important; letter-spacing:3px!important; }
+.sistema-ayuda{ font-size:clamp(14px,1.05vw,17px)!important; color:#d6d2e6!important; }
+
+/* Polvo de estrellas que brilla suavemente detrás de todo */
+.inicio-sistema .sistema::before{
+  content:'';position:absolute;inset:-9%;z-index:0;pointer-events:none;border-radius:50%;
+  background:
+    radial-gradient(2px 2px at 12% 22%,#fff,transparent 60%),
+    radial-gradient(2px 2px at 82% 14%,#cfe3ff,transparent 60%),
+    radial-gradient(1.5px 1.5px at 30% 82%,#fff,transparent 60%),
+    radial-gradient(2.5px 2.5px at 90% 70%,#ffd9fb,transparent 60%),
+    radial-gradient(1.5px 1.5px at 6% 58%,#fff,transparent 60%),
+    radial-gradient(2px 2px at 66% 94%,#d4ffd0,transparent 60%),
+    radial-gradient(1.5px 1.5px at 50% 6%,#fff,transparent 60%),
+    radial-gradient(2px 2px at 22% 40%,#ffe9b8,transparent 60%),
+    radial-gradient(1.5px 1.5px at 74% 40%,#fff,transparent 60%),
+    radial-gradient(2px 2px at 40% 62%,#cfe3ff,transparent 60%),
+    radial-gradient(1.5px 1.5px at 94% 38%,#fff,transparent 60%),
+    radial-gradient(2px 2px at 58% 74%,#fff,transparent 60%);
+  animation:luEstrellas 5s ease-in-out infinite alternate;
+}
+@keyframes luEstrellas{ from{opacity:.45} to{opacity:1} }
+
+/* Resplandor central (corona de XANDRO) */
+.inicio-sistema .sistema::after{
+  content:'';position:absolute;left:50%;top:50%;width:34%;aspect-ratio:1;z-index:2;pointer-events:none;
+  transform:translate(-50%,-50%);border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.35),rgba(242,56,255,.28) 35%,rgba(39,48,255,.18) 60%,transparent 72%);
+  animation:luCorona 4s ease-in-out infinite;
+}
+@keyframes luCorona{ 0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.85} 50%{transform:translate(-50%,-50%) scale(1.18);opacity:1} }
+
+/* Órbitas: anillos finos y suaves que se desvanecen por tramos, con el color de su mundo */
+.inicio-sistema .orbita{
+  --o:rgba(170,200,255,.8);
+  border:0!important;
+  box-shadow:none!important;
+  background:conic-gradient(from 210deg,var(--o) 0%,transparent 22%,var(--o) 46%,transparent 70%,var(--o) 100%);
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 2.5px),#000 calc(100% - 1.5px),#000 calc(100% - .5px),transparent 100%);
+          mask:radial-gradient(farthest-side,transparent calc(100% - 2.5px),#000 calc(100% - 1.5px),#000 calc(100% - .5px),transparent 100%);
+  opacity:.9;
+}
+.inicio-sistema .orbita:nth-of-type(1){--o:#FF5A4A}
+.inicio-sistema .orbita:nth-of-type(2){--o:#FFB347}
+.inicio-sistema .orbita:nth-of-type(3){--o:#FFD54A}
+.inicio-sistema .orbita:nth-of-type(4){--o:#52B0FF}
+.inicio-sistema .orbita:nth-of-type(5){--o:#FF4FC0}
+
+/* XANDRO: más grande, con halo arcoíris que gira */
+.sol{ width:clamp(100px,22%,150px)!important; height:clamp(100px,22%,150px)!important; }
+.sol::before{
+  content:'';position:absolute;inset:-16%;z-index:-1;border-radius:50%;pointer-events:none;
+  background:conic-gradient(#F238FF,#F40898,#FF3222,#FFA424,#93FF24,#3396FF,#8450FF,#F238FF);
+  -webkit-mask:radial-gradient(circle,transparent 58%,#000 60%,#000 66%,transparent 70%);
+          mask:radial-gradient(circle,transparent 58%,#000 60%,#000 66%,transparent 70%);
+  filter:blur(1.5px) drop-shadow(0 0 10px rgba(242,56,255,.8));
+  animation:luHalo 9s linear infinite;
+}
+@keyframes luHalo{ to{transform:rotate(360deg)} }
+.sol img{ filter:drop-shadow(0 0 22px rgba(242,56,255,.55)) drop-shadow(0 0 48px rgba(39,48,255,.45))!important; }
+
+/* Planetas: más grandes, con volumen, brillo y detalles propios */
+.planeta{ width:calc(var(--tam)*1.35)!important; height:calc(var(--tam)*1.35)!important; }
+.planeta .cuerpo{
+  position:relative;
+  box-shadow:0 0 14px var(--tema),0 0 34px color-mix(in srgb,var(--tema) 55%,transparent)!important;
+}
+/* sombra y brillo para que parezcan esferas */
+.planeta .cuerpo::before{
+  content:'';position:absolute;inset:0;border-radius:50%;pointer-events:none;
+  background:
+    radial-gradient(circle at 30% 26%,rgba(255,255,255,.75),rgba(255,255,255,0) 32%),
+    radial-gradient(circle at 70% 78%,rgba(0,0,0,.55),rgba(0,0,0,0) 62%);
+}
+/* Mecánica: franjas metálicas como una turbina */
+.cuerpo--mecanica{ background:repeating-linear-gradient(35deg,#FFA424 0 18%,#FF3222 18% 36%)!important; }
+/* Arte: remolino de pinceladas + anillo */
+.cuerpo--arte{ background:conic-gradient(from 20deg,#F238FF,#FFA424,#93FF24,#3396FF,#F238FF)!important; }
+.cuerpo--arte::after,
+.cuerpo--realeza::after{
+  content:'';position:absolute;left:-42%;right:-42%;top:34%;height:32%;border-radius:50%;pointer-events:none;
+  border:3px solid rgba(255,255,255,.85);transform:rotate(-18deg);
+  box-shadow:0 0 8px rgba(255,255,255,.55);
+}
+.cuerpo--realeza::after{ border-color:#F5B82F; box-shadow:0 0 10px #F5B82F; }
+/* Biología marina: una lunita que la rodea */
+.cuerpo--marina::after{
+  content:'';position:absolute;left:50%;top:50%;width:26%;height:26%;margin:-13%;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle at 35% 30%,#fff,#9fd0ff);box-shadow:0 0 8px #fff;
+  animation:luLuna 3.2s linear infinite;
+}
+@keyframes luLuna{ from{transform:rotate(0) translateX(95%)} to{transform:rotate(360deg) translateX(95%)} }
+/* Cosmetología: destello que titila */
+.cuerpo--cosmetologia::after{
+  content:'✦';position:absolute;right:-18%;top:-26%;font-size:calc(var(--tam)*.55);line-height:1;color:#fff;pointer-events:none;
+  text-shadow:0 0 8px #fff,0 0 16px #F40898;animation:luDestello 2.2s ease-in-out infinite;
+}
+@keyframes luDestello{ 0%,100%{opacity:.25;transform:scale(.6) rotate(0)} 50%{opacity:1;transform:scale(1.15) rotate(40deg)} }
+
+.planeta:hover .cuerpo,.planeta:focus-visible .cuerpo{ transform:scale(1.35)!important; }
+
+/* Nombres como etiquetas de color */
+.planeta-nombre{
+  border:2px solid var(--tema,#8450FF);padding:6px 14px!important;border-radius:999px!important;
+  background:rgba(4,2,14,.92)!important;box-shadow:0 0 14px color-mix(in srgb,var(--tema,#8450FF) 60%,transparent);
+  font-size:clamp(15px,1.25vw,20px)!important;z-index:40;
+}
+.sol .planeta-nombre{ --tema:#F238FF; bottom:108%; }
+@media(prefers-reduced-motion:reduce){
+  .sol::before,.inicio-sistema .sistema::before,.inicio-sistema .sistema::after,
+  .cuerpo--marina::after,.cuerpo--cosmetologia::after{ animation:none!important; }
+}
+
+/* Aprender: el ✓ del mundo activo no tapa el porcentaje */
+.pagina-aprender .world.active::after{ top:-9px; right:-9px; }
+
+
+/* ---------------------------------------------------------
+   3) SCROLLS con diseño de marca (arcoíris suave)
+--------------------------------------------------------- */
+@supports selector(::-webkit-scrollbar){
+  *{ scrollbar-width:auto!important; scrollbar-color:auto!important; }
+  *::-webkit-scrollbar{ width:12px; height:12px; }
+  *::-webkit-scrollbar-track{
+    background:rgba(255,255,255,.05);
+    border-radius:999px;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);
+    margin:6px 0;
+  }
+  *::-webkit-scrollbar-thumb{
+    background:linear-gradient(180deg,#F238FF,#8450FF 55%,#3396FF)!important;
+    border-radius:999px;
+    border:3px solid transparent;
+    background-clip:padding-box!important;
+    min-height:48px;
+  }
+  *::-webkit-scrollbar-thumb:horizontal{ background:linear-gradient(90deg,#F238FF,#8450FF 55%,#3396FF)!important; background-clip:padding-box!important; }
+  *::-webkit-scrollbar-thumb:hover{ border-width:2px; filter:brightness(1.2); }
+  *::-webkit-scrollbar-thumb:active{ border-width:1px; }
+  *::-webkit-scrollbar-corner{ background:transparent; }
+}
+@supports not selector(::-webkit-scrollbar){
+  *{ scrollbar-width:thin; scrollbar-color:#8450FF rgba(255,255,255,.07); }
+}
+
+/* ---------------------------------------------------------
+   4) CELULARES / EQUIPOS MODESTOS: menos efectos pesados
+--------------------------------------------------------- */
+@media (max-width:900px),(pointer:coarse){
+  .inicio-sistema,
+  .pagina-aprender .sidebar,
+  .pagina-aprender .side>div,
+  .pagina-aprender .journey,
+  .pagina-aprender .top{ backdrop-filter:none!important; -webkit-backdrop-filter:none!important; }
+  .pagina-aprender .sidebar,
+  .pagina-aprender .side>div,
+  .pagina-aprender .journey{ background:rgba(6,4,16,.93)!important; }
+  /* sistema solar: sin animaciones de fondo ni filtros costosos */
+  .inicio-sistema .sistema::before,
+  .inicio-sistema .sistema::after,
+  .sol::before,
+  .cuerpo--cosmetologia::after{ animation:none!important; }
+  .inicio-sistema .sistema::before{ opacity:.9; }
+  .sol::before{ filter:none; }
+  .sol img{ filter:drop-shadow(0 0 14px rgba(242,56,255,.5))!important; }
+  .planeta .cuerpo{ box-shadow:0 0 10px var(--tema)!important; }
+  .cuerpo--cosmetologia::after{ opacity:1; }
+  .planeta{ will-change:transform!important; }
+  .planeta .cuerpo{ will-change:auto!important; }
+  .planeta:hover .cuerpo,.planeta:focus-visible .cuerpo{ filter:none!important; }
+  /* fondo de fotos: oscurecer con una capa fija en vez de un filtro animado */
+  .carrusel-inicio div{ filter:none!important; }
+  .carrusel-inicio::after{ content:'';position:absolute;inset:0;background:rgba(0,0,0,.52); }
+  /* carriles de scroll más delgados al tacto */
+  *::-webkit-scrollbar{ width:8px; height:8px; }
+}
+
+
+/* Enlace al lienzo (mundo Arte) y tarjeta en Juegos */
+.enlace-lienzo{display:inline-flex;align-items:center;gap:8px;margin-top:10px;padding:11px 22px;border:2px solid #FFA424;border-radius:999px;background:linear-gradient(90deg,rgba(242,56,255,.28),rgba(255,164,36,.28));color:#fff;text-decoration:none;font:800 clamp(14px,1.2vw,18px) Montserrat,sans-serif;transition:transform .2s,box-shadow .2s;width:fit-content}
+.enlace-lienzo:hover{transform:scale(1.05);box-shadow:0 0 22px rgba(255,164,36,.6)}
+.enlace-lienzo[hidden]{display:none}
+.game-card-lienzo{display:block;color:inherit;text-decoration:none;cursor:pointer;background:linear-gradient(145deg,rgba(242,56,255,.16),rgba(255,164,36,.10));border-color:rgba(255,164,36,.55)}
+.game-card-lienzo .status{display:inline-block;margin-top:10px;padding:10px 18px;border:2px solid #FF6A13;border-radius:999px;font-weight:800;transition:transform .2s,background .2s}
+.game-card-lienzo:hover .status{background:rgba(255,106,19,.2);transform:translateX(3px)}
+
+/* ---------------------------------------------------------
+   5) TARJETAS DE LOS MUNDOS: botones completos y scroll bonito
+--------------------------------------------------------- */
+/* Nada dentro de la tarjeta se encoge: si no cabe, la tarjeta hace scroll */
+.mundo-card > *{ flex-shrink:0!important; }
+.card-boton,
+.btn-explorar-relacionados{
+  flex:0 0 auto!important;
+  display:inline-flex!important; align-items:center; justify-content:center;
+  height:auto!important; min-height:46px!important;
+  padding:11px 26px!important; line-height:1.25!important;
+  white-space:nowrap; overflow:visible!important;
+  margin-top:auto; /* queda abajo, pero nunca más chico que su texto */
+}
+.mundo-card{
+  min-height:250px!important;
+  max-height:calc(100vh - 420px)!important;
+  padding:26px 14px 26px 28px!important;     /* aire a la derecha para la barra */
+  scrollbar-gutter:stable;
+}
+@media (max-height:760px){ .mundo-card{ max-height:calc(100vh - 380px)!important; } }
+@media (max-width:700px){
+  .mundo-card{ padding:22px 10px 22px 20px!important; min-height:260px!important; max-height:calc(100vh - 360px)!important; }
+}
+
+/* Barra de scroll de la tarjeta (vertical) y del carrusel (horizontal) con el color del mundo */
+.mundo-card::-webkit-scrollbar{ width:12px; height:12px; }
+.mundo-card::-webkit-scrollbar-track{
+  background:rgba(255,255,255,.08); border-radius:999px; margin:14px 0;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
+}
+.mundo-card::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg,#fff,var(--mundo-color,#8450FF) 40%,var(--mundo-color,#8450FF))!important;
+  background-clip:padding-box!important;
+  border:3px solid transparent; border-radius:999px; min-height:44px;
+  box-shadow:0 0 10px var(--mundo-color,#8450FF);
+}
+.mundo-card::-webkit-scrollbar-thumb:hover{ filter:brightness(1.2); }
+.mundo-carrusel::-webkit-scrollbar{ height:12px; }
+.mundo-carrusel::-webkit-scrollbar-track{ background:rgba(255,255,255,.08); border-radius:999px; margin:0 30px; }
+.mundo-carrusel::-webkit-scrollbar-thumb{
+  background:linear-gradient(90deg,#fff,var(--mundo-color,#8450FF) 40%,var(--mundo-color,#8450FF))!important;
+  background-clip:padding-box!important; border:3px solid transparent; border-radius:999px; min-width:50px;
+}
+@supports not selector(::-webkit-scrollbar){
+  .mundo-card,.mundo-carrusel{ scrollbar-width:auto; scrollbar-color:var(--mundo-color,#8450FF) rgba(255,255,255,.1); }
+}
+
+/* Controles ‹ 01/08 › : centrados de verdad y sin tapar la tarjeta */
+.mundo-controles{
+  left:0!important; right:0!important; width:max-content; margin:0 auto!important;
+  transform:none!important; bottom:12px!important;
+}
+.mundo-panel.abierto .mundo-controles{ animation:none!important; }
+.mundo-controles .slider-btn{ width:50px!important; height:50px!important; min-width:50px; border-width:2px!important; background:rgba(8,6,20,.85)!important; }
+@media (max-width:700px){
+  .mundo-controles{ gap:10px!important; }
+  .mundo-controles .slider-btn{ width:46px!important; height:46px!important; min-width:46px; font-size:26px; }
+  .mundo-contador{ min-width:64px; }
+}
+
+/* Enlace del lienzo: más compacto para no empujar las tarjetas */
+.enlace-lienzo{ margin-top:6px; padding:8px 18px; }
+@media (max-height:700px){ .mundo-card{ min-height:200px!important; max-height:calc(100vh - 400px)!important; } }
+
+/* La barra horizontal del carrusel queda por encima de los botones ‹ › */
+.mundo-carrusel{ margin-bottom:70px!important; }
+@media (max-width:700px){ .mundo-carrusel{ margin-bottom:64px!important; } }
+
+/* ---------------------------------------------------------
+   6) JUEGOS: tarjetas organizadas por mundo, letras grandes
+--------------------------------------------------------- */
+.pagina-juegos .brand{font-size:clamp(17px,1.5vw,24px)}
+.pagina-juegos .brand small{font-size:clamp(12px,1vw,16px)}
+.pagina-juegos .back{font-size:clamp(15px,1.3vw,21px);padding:12px 20px}
+.pagina-juegos .eyebrow{font-size:clamp(14px,1.2vw,18px);letter-spacing:3px}
+.pagina-juegos .intro h1{font-size:clamp(44px,5.4vw,92px);line-height:1.08}
+.pagina-juegos .intro p{font-size:clamp(18px,1.7vw,28px);line-height:1.55;color:#e4e2f0;max-width:900px;text-shadow:0 1px 4px #000}
+.pagina-juegos footer{font-size:clamp(13px,1vw,17px)}
+
+/* Menú para saltar a un mundo */
+.mj-nav{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 8px}
+.mj-nav a{padding:10px 18px;border:2px solid var(--c);border-radius:999px;color:#fff;text-decoration:none;font-weight:700;font-size:clamp(14px,1.2vw,19px);background:rgba(8,6,20,.82);transition:transform .2s,background .2s}
+.mj-nav a b{color:var(--c);margin-right:4px}
+.mj-nav a:hover{background:var(--c);color:#000;transform:translateY(-2px)}
+.mj-nav a:hover b{color:#000}
+
+/* Una banda por mundo */
+.mundos-lista{display:flex;flex-direction:column;gap:clamp(26px,3vw,46px);margin-top:26px;scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+.mundo-juegos{padding:clamp(16px,2vw,28px);border:2px solid color-mix(in srgb,var(--accent),transparent 55%);border-radius:28px;background:linear-gradient(160deg,color-mix(in srgb,var(--accent),transparent 90%),rgba(8,6,20,.82) 60%);box-shadow:0 0 30px color-mix(in srgb,var(--accent),transparent 88%)}
+.mj-cab{display:flex;align-items:center;gap:clamp(12px,1.4vw,22px);margin-bottom:clamp(14px,1.6vw,22px);flex-wrap:wrap}
+.mj-num{display:grid;place-items:center;min-width:clamp(46px,4vw,64px);height:clamp(46px,4vw,64px);padding:0 8px;border-radius:50%;background:var(--accent);color:#000;font-weight:900;font-size:clamp(18px,1.7vw,26px)}
+.mj-icono{font-size:clamp(30px,3vw,46px);color:var(--accent);filter:drop-shadow(0 0 8px var(--accent))}
+.mj-tit{flex:1;min-width:200px}
+.mj-tit h2{margin:0;font-size:clamp(28px,3vw,48px);line-height:1.1;color:#fff}
+.mj-tit p{margin:4px 0 0;font-size:clamp(15px,1.3vw,21px);color:var(--accent);font-weight:700}
+.mj-cuenta{padding:8px 16px;border:2px solid color-mix(in srgb,var(--accent),transparent 40%);border-radius:999px;font-weight:800;font-size:clamp(13px,1.1vw,17px);color:#fff;background:rgba(0,0,0,.35)}
+.mj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(12px,1.4vw,20px)}
+
+/* Tarjetas: misma altura, botón siempre abajo */
+.mj-grid .game-card{display:flex;flex-direction:column;padding:clamp(18px,1.8vw,28px);background:rgba(8,6,20,.9);border:2px solid color-mix(in srgb,var(--accent),transparent 55%);color:#fff}
+.gc-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.mj-grid .game-icon{width:clamp(52px,4.4vw,68px);height:clamp(52px,4.4vw,68px);margin:0;font-size:clamp(28px,2.6vw,38px);border-radius:18px}
+.mj-grid .tag{font-size:clamp(13px,1.05vw,16px);letter-spacing:1.5px;font-weight:800;padding:6px 12px;border:1.5px solid color-mix(in srgb,var(--accent),transparent 40%);border-radius:999px;background:rgba(0,0,0,.35)}
+.mj-grid .game-card h3{margin:0 0 8px;font-size:clamp(22px,2vw,32px);line-height:1.2;color:#fff}
+.mj-grid .game-card p{flex:1;margin:0 0 16px;min-height:0;font-size:clamp(16px,1.35vw,21px);line-height:1.5;color:#dcdaea}
+.gc-pie{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:auto}
+.mj-grid .jugar{margin:0;flex:1 1 150px;padding:14px 26px;font-size:clamp(17px,1.45vw,22px);background:color-mix(in srgb,var(--accent),transparent 80%)}
+.mj-grid .mejor{margin:0;font-size:clamp(14px,1.1vw,17px);font-weight:700;color:#FFD54A}
+.mj-grid .status{margin:0;padding:12px 20px;font-size:clamp(14px,1.2vw,18px);border:2px solid var(--accent);border-radius:999px;letter-spacing:1px}
+.mj-grid .game-card-lienzo .status,.mj-grid .game-card-vr .status{flex:1 1 150px;justify-content:center}
+.mj-ancha{grid-column:1/-1}
+@media(max-width:700px){
+  .mj-cuenta{display:none}
+  .mj-nav{flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px}
+  .mj-nav a{white-space:nowrap}
+}
+
+/* ---------------------------------------------------------
+   7) RACHA DIARIA y respaldo de progreso
+--------------------------------------------------------- */
+.racha-chip{display:inline-flex;align-items:center;gap:8px;margin:20px 0 0;padding:10px 20px;border:2px solid #FFA424;border-radius:999px;background:linear-gradient(90deg,rgba(255,50,34,.25),rgba(255,164,36,.25));color:#fff;font-weight:800;font-size:clamp(16px,1.4vw,22px)}
+.racha-chip b{color:#FFD54A;font-size:1.25em}
+.respaldo{margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.15);text-align:center}
+.resp-info{margin:0 0 12px;font-size:clamp(14px,1.1vw,17px);line-height:1.5;color:#e4e2f0}
+.resp-botones{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.resp-botones button{padding:11px 18px;border:2px solid #93FF24;border-radius:999px;background:rgba(147,255,36,.1);color:#fff;font:800 clamp(13px,1.1vw,16px) Montserrat,sans-serif;cursor:pointer}
+.resp-botones button:hover{background:#93FF24;color:#000}
+.resp-msg{min-height:20px;margin:10px 0 0;font-weight:700;font-size:14px;color:#FFD54A}
+
+/* ---------------------------------------------------------
+   8) ANIMACIONES · Aprender (correcta, error, XP, resultado)
+--------------------------------------------------------- */
+.pagina-aprender .answer{ position:relative; }
+.pagina-aprender .answer.correct{
+  background:linear-gradient(90deg,#17a33a,#32E34E)!important;
+  border-color:#fff!important; color:#04210b!important; font-weight:800;
+  text-shadow:none;
+  animation:luCorrecto .55s cubic-bezier(.2,.9,.3,1.35) both, luOndaOk 1.3s ease-out .1s;
+}
+.pagina-aprender .answer.correct::after{
+  content:'✓'; position:absolute; right:16px; top:50%; transform:translateY(-50%);
+  width:30px; height:30px; display:grid; place-items:center; border-radius:50%;
+  background:#fff; color:#17a33a; font-weight:900; font-size:18px;
+  animation:luSello .5s cubic-bezier(.2,.9,.3,1.6) .15s both;
+}
+.pagina-aprender .answer.wrong{
+  background:rgba(255,40,40,.38)!important; border-color:#FF5A4A!important; color:#fff!important;
+  animation:luError .5s ease both;
+}
+.pagina-aprender .answer.wrong::after{
+  content:'✕'; position:absolute; right:16px; top:50%; transform:translateY(-50%);
+  width:30px; height:30px; display:grid; place-items:center; border-radius:50%;
+  background:#fff; color:#d61f1f; font-weight:900; font-size:16px;
+}
+.pagina-aprender .answer.apagada:disabled{ opacity:.45; }
+.pagina-aprender .answer.correct:disabled,.pagina-aprender .answer.wrong:disabled{ opacity:1; }
+@keyframes luCorrecto{ 0%{transform:scale(.97)} 45%{transform:scale(1.045)} 100%{transform:scale(1)} }
+@keyframes luOndaOk{ 0%{box-shadow:0 0 0 0 rgba(50,227,78,.75)} 100%{box-shadow:0 0 0 22px rgba(50,227,78,0)} }
+@keyframes luSello{ from{transform:translateY(-50%) scale(0) rotate(-90deg)} to{transform:translateY(-50%) scale(1) rotate(0)} }
+@keyframes luError{ 0%,100%{transform:translateX(0)} 18%{transform:translateX(-9px)} 36%{transform:translateX(9px)} 54%{transform:translateX(-6px)} 72%{transform:translateX(5px)} }
+
+.pagina-aprender .feedback.ok{ color:#7CFF6B; font-weight:800; animation:luPop .45s cubic-bezier(.2,.9,.3,1.4) both; }
+.pagina-aprender .feedback.mal{ color:#FFB3A8; font-weight:700; animation:luSubir .4s ease both; }
+@keyframes luPop{ from{opacity:0;transform:scale(.7)} to{opacity:1;transform:scale(1)} }
+@keyframes luSubir{ from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+.pagina-aprender .next{ animation:luSubir .35s ease .12s both; }
+
+/* Barra de progreso de la lección */
+.pagina-aprender #track{ transition:width .5s cubic-bezier(.2,.8,.3,1)!important; box-shadow:0 0 12px currentColor; }
+
+/* Marcadores de arriba */
+.pagina-aprender .stats span.sube{ animation:luBump .6s cubic-bezier(.2,.9,.3,1.5); }
+.pagina-aprender .stats span.baja{ animation:luTiembla .5s ease; }
+@keyframes luBump{ 0%{transform:scale(1)} 40%{transform:scale(1.28)} 100%{transform:scale(1)} }
+@keyframes luTiembla{ 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 50%{transform:translateX(6px)} 75%{transform:translateX(-3px)} }
+
+/* Resultado de la lección */
+.pagina-aprender .result strong{ display:inline-block; animation:luTrofeo .9s cubic-bezier(.2,.9,.3,1.5) both; }
+.pagina-aprender .result h2{ animation:luSubir .5s ease .25s both; }
+.pagina-aprender .result .earned{ animation:luPop .6s cubic-bezier(.2,.9,.3,1.5) .45s both; }
+@keyframes luTrofeo{ 0%{transform:scale(0) rotate(-25deg)} 60%{transform:scale(1.25) rotate(8deg)} 100%{transform:scale(1) rotate(0)} }
+
+/* Lección que acabas de completar */
+.pagina-aprender .lesson.recien{ animation:luOndaOk 1.2s ease-out, luCorrecto .6s cubic-bezier(.2,.9,.3,1.35); }
+/* Ventana de la lección: entra suave */
+.pagina-aprender .modal.open .window{ animation:luLearningModalIn .35s cubic-bezier(.2,.8,.3,1) both; }
+
+/* ---------------------------------------------------------
+   9) ANIMACIONES · generales
+--------------------------------------------------------- */
+/* Entrada de cada mundo: encabezado, consejos, tarjetas y controles aparecen en cascada.
+   Se usa "backwards" para que al terminar no quede un transform fijo que bloquee el hover. */
+.mundo-panel.abierto .mundo-encabezado,
+.mundo-panel.abierto .mundo-tip,
+.mundo-panel.abierto .mundo-ayuda{ animation-fill-mode:backwards!important; }
+.mundo-panel.mundo-entra .mundo-encabezado{ animation:luSoftEnter .45s cubic-bezier(.2,.75,.25,1) backwards; }
+.mundo-panel.mundo-entra .mundo-tip-izquierdo{ animation:luSoftEnter .45s cubic-bezier(.2,.75,.25,1) .08s backwards; }
+.mundo-panel.mundo-entra .mundo-tip-derecho{ animation:luSoftEnter .45s cubic-bezier(.2,.75,.25,1) .14s backwards; }
+.mundo-panel.mundo-entra .mundo-card{ animation:luTarjetaEntra .5s cubic-bezier(.2,.8,.3,1) backwards; }
+.mundo-panel.mundo-entra .mundo-card:nth-child(1){ animation-delay:.10s }
+.mundo-panel.mundo-entra .mundo-card:nth-child(2){ animation-delay:.18s }
+.mundo-panel.mundo-entra .mundo-card:nth-child(3){ animation-delay:.26s }
+.mundo-panel.mundo-entra .mundo-card:nth-child(n+4){ animation-delay:.32s }
+@keyframes luTarjetaEntra{ from{opacity:0;transform:translateY(22px) scale(.97)} to{opacity:1;transform:translateY(0) scale(1)} }
+
+/* Los botones de las tarjetas responden al tocarlos */
+.card-boton{ transition:transform .2s cubic-bezier(.2,.8,.3,1.3),box-shadow .2s,filter .2s!important; }
+.card-boton:hover{ transform:translateY(-2px) scale(1.04); box-shadow:0 8px 20px rgba(0,0,0,.4); }
+.card-boton:active{ transform:scale(.96); }
+
+/* Juegos: la ventana del juego y sus pantallas entran con suavidad */
+.gm:not([hidden]){ animation:luFade .25s ease backwards; }
+.gm:not([hidden]) .gm-ventana{ animation:luVentanaIn .38s cubic-bezier(.2,.85,.3,1.15) backwards; }
+@keyframes luVentanaIn{ from{opacity:0;transform:translateY(26px) scale(.94)} to{opacity:1;transform:translateY(0) scale(1)} }
+@keyframes luFade{ from{opacity:0} to{opacity:1} }
+.gm-inicio{ animation:luFade .3s ease backwards; }
+.gm-fin,.gm-resultado{ animation:luFade .35s ease backwards; }
+
+/* Cada página aparece con un fundido corto (solo opacidad: no afecta elementos fijos) */
+body{ animation:luFade .45s ease backwards; }
+
+/* Botones de juego: efecto al presionar */
+.jugar:active,.btn:active,.gm-btn:active,.chip:active,.herr:active{ transform:scale(.95)!important; }
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{ animation-duration:.001ms!important; animation-iteration-count:1!important; transition-duration:.001ms!important; scroll-behavior:auto!important; }
+}
+
+/* Botones CONTINUAR / VOLVER AL CAMINO: bien visibles */
+.pagina-aprender .next{
+  background:linear-gradient(90deg,#F238FF,#8450FF 55%,#3396FF)!important;
+  color:#fff!important; border:0!important; font-weight:900; letter-spacing:1px;
+  text-shadow:0 1px 3px rgba(0,0,0,.5);
+  box-shadow:0 0 22px rgba(132,80,255,.55);
+}
+.pagina-aprender .next:hover{ filter:brightness(1.15); transform:translateY(-2px) scale(1.02); }
+.pagina-aprender .next:active{ transform:scale(.97); }
+
+/* ---------------------------------------------------------
+   10) BARRA SUPERIOR: eslogan «Más allá del conocimiento»
+--------------------------------------------------------- */
+.barra-superior .eslogan{
+  flex:1; margin:0; text-align:center; line-height:1.15;
+  font-weight:800; letter-spacing:.5px; white-space:nowrap;
+  font-size:clamp(17px,2vw,32px);
+  background:linear-gradient(90deg,#F238FF,#F40898,#FF3222,#FFA424,#93FF24,#3396FF,#8450FF);
+  -webkit-background-clip:text; background-clip:text; color:transparent!important;
+  filter:drop-shadow(0 0 14px rgba(242,56,255,.35));
+}
+.barra-superior .eslogan::before,
+.barra-superior .eslogan::after{
+  content:'✦'; display:inline-block; margin:0 .6em; font-size:.7em; vertical-align:middle;
+  -webkit-text-fill-color:#FFA424; color:#FFA424;
+}
+.barra-superior::before{ font-size:clamp(13px,1.1vw,18px)!important; }
+@media (max-width:900px){
+  .barra-superior .eslogan{ font-size:clamp(14px,3.6vw,20px); white-space:normal; }
+  .barra-superior .eslogan::before,.barra-superior .eslogan::after{ margin:0 .35em; }
+}
+
+/* Panel lateral antiguo: ya no se usa y dejaba texto suelto arriba a la izquierda */
+.panel-lateral{ display:none!important; }
+
+/* ---------------------------------------------------------
+   11) ESLOGAN más grande y vistoso
+--------------------------------------------------------- */
+.barra-superior{
+  height:clamp(84px,7.4vw,112px)!important;
+  background:linear-gradient(180deg,rgba(8,5,22,.92),rgba(5,4,10,.78))!important;
+  border-bottom:2px solid transparent!important;
+  border-image:linear-gradient(90deg,#F238FF,#F40898,#FF3222,#FFA424,#93FF24,#3396FF,#8450FF) 1!important;
+}
+.inicio{ padding-top:clamp(112px,9.4vw,140px)!important; }
+.barra-superior .eslogan{
+  flex:1; display:flex; align-items:center; gap:clamp(12px,1.6vw,26px);
+  margin:0 0 0 clamp(8px,1.5vw,24px); padding:0; text-align:center; white-space:nowrap;
+  background:none!important; filter:none!important; color:inherit!important; -webkit-text-fill-color:initial!important;
+  animation:luEsloganIn .8s cubic-bezier(.2,.85,.3,1) backwards;
+}
+.barra-superior .eslogan span{
+  flex:0 1 auto; padding:0 .1em;
+  font-size:clamp(24px,3.3vw,54px); font-weight:900; letter-spacing:.035em; line-height:1.1;
+  background:linear-gradient(90deg,#F238FF,#F40898,#FF3222,#FFA424,#FFE600,#93FF24,#3396FF,#8450FF,#F238FF);
+  background-size:220% 100%;
+  -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 16px rgba(242,56,255,.45)) drop-shadow(0 3px 0 rgba(0,0,0,.55));
+  animation:luEsloganBrillo 9s linear infinite;
+}
+/* líneas con un punto brillante a cada lado */
+.barra-superior .eslogan::before,
+.barra-superior .eslogan::after{
+  content:''; flex:1; min-width:30px; height:6px; margin:0; display:block;
+  -webkit-text-fill-color:initial;
+}
+.barra-superior .eslogan::before{
+  background:
+    radial-gradient(circle at 100% 50%,#FFE600 0 3px,rgba(255,164,36,.5) 4px,transparent 6px),
+    linear-gradient(90deg,transparent,#F238FF 45%,#FFA424);
+  background-size:100% 100%,100% 2px; background-repeat:no-repeat; background-position:0 0,0 50%;
+}
+.barra-superior .eslogan::after{
+  background:
+    radial-gradient(circle at 0 50%,#FFE600 0 3px,rgba(255,164,36,.5) 4px,transparent 6px),
+    linear-gradient(270deg,transparent,#3396FF 45%,#93FF24);
+  background-size:100% 100%,100% 2px; background-repeat:no-repeat; background-position:0 0,0 50%;
+}
+@keyframes luEsloganBrillo{ from{background-position:0 0} to{background-position:220% 0} }
+@keyframes luEsloganIn{ from{opacity:0;transform:translateY(-14px) scale(.96)} to{opacity:1;transform:none} }
+.barra-superior::before{ font-size:clamp(14px,1.2vw,20px)!important; font-weight:800!important; }
+
+@media (max-width:900px){
+  .barra-superior{ height:72px!important; padding:0 12px!important; }
+  .inicio{ padding-top:92px!important; }
+  .barra-superior .eslogan{ margin-left:0; gap:8px; }
+  .barra-superior .eslogan span{ font-size:clamp(17px,4.8vw,26px); white-space:normal; line-height:1.1; letter-spacing:.02em; }
+  .barra-superior .eslogan::before,.barra-superior .eslogan::after{ min-width:12px; }
+}
+/* equipos modestos: sin brillo animado ni sombras costosas */
+@media (max-width:900px),(pointer:coarse){
+  .barra-superior .eslogan span{ animation:none; background-size:100% 100%; filter:none; }
+}
+
+/* ajuste fino: barra un poco más baja para dar aire al contenido en pantallas bajas */
+.barra-superior{ height:clamp(80px,6.4vw,104px)!important; }
+.inicio{ padding-top:clamp(100px,8vw,128px)!important; }
+@media (max-height:760px) and (min-width:901px){
+  .barra-superior{ height:78px!important; }
+  .inicio{ padding-top:92px!

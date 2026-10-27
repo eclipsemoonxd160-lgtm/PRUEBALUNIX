@@ -1,0 +1,12 @@
+{
+  "name": "literary-universe-search",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend local para el buscador inteligente de Literary Universe",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,3 @@
+document.querySelectorAll('.filter').forEach(button=>{button.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(b=>b.classList.toggle('active',b===button));const target=button.dataset.filter;document.querySelectorAll('.media-card, .recommendations').forEach(card=>{card.hidden=target!=='todos'&&card.dataset.world!==target;});});});
+// Hide the missing-file hint when a valid local video loads; show it if the source cannot be played.
+document.querySelectorAll('.media-card video').forEach(video=>{const hint=video.parentElement.querySelector('.missing');video.addEventListener('loadedmetadata',()=>{if(hint)hint.hidden=true;});video.addEventListener('error',()=>{if(hint)hint.hidden=false;});});
